@@ -2,14 +2,16 @@
 .footer-mini{
   background:#000;
   color:#fff;
-  font-size:14px; line-height:1.4;
-  padding:10px 0;                 /* vertical only */
+  font-size:14px;
+  line-height:1.4;
+}
+.footer-mini .container{
+  padding:10px 24px;              /* same side padding as your .container */
 }
 .footer-mini-row{
-  max-width: var(--maxw);          /* same as .container */
-  margin: 0 auto;
-  padding: 0 24px;                 /* match .container side padding */
-  display:flex; align-items:center; justify-content:space-between;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
   gap:16px;
 }
 .footer-mini .mini-links{ display:flex; align-items:center; gap:16px; }
