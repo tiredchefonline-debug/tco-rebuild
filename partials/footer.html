@@ -33,7 +33,8 @@
       <h4>Company</h4>
       <ul class="linklist">
         <li><a href="/privacy.html">Privacy Policy</a></li>
-        <li><a href="/sitemap.html">Sitemap</a></li>
+        <li><a href="/sitemap.html">Sitemap (HTML)</a></li>
+        <li><a href="/sitemap.xml">Sitemap (XML)</a></li>
       </ul>
     </div>
 
@@ -53,12 +54,25 @@
       </div>
     </div>
   </div>
-
-<footer id="global-footer" style="position:bottom:0;left:0;width:100%;background:#000;
-  color:#fff;padding:10px 16px;font-size:14px;line-height:1.4;z-index:9999;">
-<div style="max-width:1200px;margin:0 auto;display:flex;gap:12px;align-items:center;justify-content:space-between;">
-<div><a href="../sitemap.html" style="color:#fff;text-decoration:none;">Sitemap</a></div>
-<div style="white-space:nowrap;">© 2025 Tired Chef Online · Created by Tired Chef Online</div>
-</div>
-
 </footer>
+
+<!-- Sticky black bar with particle background -->
+<footer id="global-footer" style="position:fixed;bottom:0;left:0;width:100%;background:#000;color:#fff;padding:10px 16px;font-size:14px;line-height:1.4;z-index:9999;overflow:hidden;">
+  <!-- Particle background container -->
+  <div id="particles-js" style="position:absolute;inset:0;z-index:-1;"></div>
+
+  <div style="max-width:1200px;margin:0 auto;display:flex;gap:12px;align-items:center;justify-content:space-between;position:relative;z-index:1;">
+    <div style="display:flex;gap:16px;align-items:center;">
+      <a href="/sitemap.html" style="color:#fff;text-decoration:none;">Sitemap</a>
+      <span aria-hidden="true">·</span>
+      <a href="/sitemap.xml" style="color:#fff;text-decoration:none;">XML</a>
+    </div>
+    <div style="white-space:nowrap;">© 2025 Tired Chef Online · Created by Tired Chef Online</div>
+  </div>
+</footer>
+
+<!-- Load Particle.js -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  particlesJS.load('particles-js', '/assets/particles-config.json');
+</script>
