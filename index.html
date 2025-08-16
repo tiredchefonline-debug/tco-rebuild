@@ -285,5 +285,18 @@
     })();
   </script>
 
+<script>
+  (function stickBottom(){
+    document.documentElement.style.minHeight = '100%';
+    document.body.style.minHeight = '100vh';
+    document.body.style.display = 'flex';
+    document.body.style.flexDirection = 'column';
+    // push last element (the footer include) to bottom
+    const last = document.body.lastElementChild;
+    if (last) last.style.marginTop = 'auto';
+  })();
+  </script>
+  
+
 </body>
 </html>
