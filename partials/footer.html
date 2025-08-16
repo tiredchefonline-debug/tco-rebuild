@@ -54,25 +54,17 @@
       </div>
     </div>
   </div>
-</footer>
 
-<!-- Sticky black bar with particle background -->
-<footer id="global-footer" style="position:fixed;bottom:0;left:0;width:100%;background:#000;color:#fff;padding:10px 16px;font-size:14px;line-height:1.4;z-index:9999;overflow:hidden;">
-  <!-- Particle background container -->
-  <div id="particles-js" style="position:absolute;inset:0;z-index:-1;"></div>
-
-  <div style="max-width:1200px;margin:0 auto;display:flex;gap:12px;align-items:center;justify-content:space-between;position:relative;z-index:1;">
-    <div style="display:flex;gap:16px;align-items:center;">
-      <a href="/sitemap.html" style="color:#fff;text-decoration:none;">Sitemap</a>
-      <span aria-hidden="true">·</span>
-      <a href="/sitemap.xml" style="color:#fff;text-decoration:none;">XML</a>
-    </div>
-    <div style="white-space:nowrap;">© 2025 Tired Chef Online · Created by Tired Chef Online</div>
+<!-- Footer bottom row (non-sticky, visible on every page) -->
+<div class="footer-mini">
+  <div class="footer-mini-row">
+    <nav class="mini-links">
+      <a href="/sitemap.html">Sitemap</a>
+    </nav>
+    <div class="mini-copy">© 2025 TiredChefOnline · Created by TiredChefOnline</div>
   </div>
+</div>
+
 </footer>
 
-<!-- Load Particle.js -->
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script>
-  particlesJS.load('particles-js', '/assets/particles-config.json');
-</script>
+
