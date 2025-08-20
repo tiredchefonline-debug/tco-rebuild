@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
-  <meta name="functions-base" content="https://tiredchefonline.netlify.app"/>
 
   <!-- Structured data -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"TiredChefOnline","url":"https://tiredchefonline.com","image":"https://tiredchefonline.com/assets/brand/chef.png","areaServed":{"@type":"City","name":"Apple Valley","addressCountry":"US","addressRegion":"MN"},"serviceArea":{"@type":"Place","name":"Apple Valley, MN"}}</script>
@@ -32,7 +31,6 @@
     .clickable-result{cursor:pointer;transition:transform .12s ease,box-shadow .12s ease}
     .clickable-result:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.25)}
 
-    /* Buttons (theme-aligned) */
     .btn{display:inline-block;padding:10px 14px;border:1px solid #2a2d52;border-radius:12px;background:#171c3a;color:#fff;text-decoration:none;cursor:pointer;transition:background .15s ease,border-color .15s ease,transform .08s ease}
     .btn:hover{background:#1e254e;border-color:#3a48a0;transform:translateY(-1px)}
     .btn.ghost{background:transparent;border-color:#6aa6ff;color:#cfe6ff}
@@ -55,18 +53,9 @@
   <!-- Scripts -->
   <script defer src="assets/script.min.js"></script>
   <script>(function(){try{if(location.protocol==="http:"){location.replace(location.href.replace("http:","https:"));}}catch(e){}})();</script>
-
-  <!-- Audit widget: small layout helpers -->
-  <style>
-    #audit-result.audit-result{display:block;width:min(720px,100%);margin:12px auto 0;text-align:center;font-size:.95rem;opacity:.9}
-    #audit-result .score{font-weight:700;font-size:1.1rem}
-    #audit-result .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.5rem;padding:0;margin:.5rem 0;list-style:none}
-    #audit-result .metrics li{padding:.5rem .75rem;border:1px solid rgba(255,255,255,.08);border-radius:.75rem}
-  </style>
 </head>
 
 <body>
-  <!-- Shared header -->
   <div data-include="partials/header.html"></div>
 
   <main id="content">
@@ -79,124 +68,6 @@
     <section class="hero">
       <div class="container">
         <h1 class="hero-title">Your Go-To Digital Marketing Agency in Apple Valley, MN for <span class="kw-rotate">Create Website</span></h1>
-
-        <!-- ===== MINI-AUDIT WIDGET ===== -->
-        <section class="section" id="mini-audit" style="margin-top:18px">
-          <div class="container mini-audit-grid">
-            <!-- LEFT -->
-            <div class="mini-left">
-              <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-                <input id="miniUrl" type="text" placeholder="your-website.com"
-                       style="padding:10px 12px;border:1px solid #2a2d52;border-radius:12px;background:#0d1130;color:#fff;min-width:320px">
-                <button id="miniRun"
-                        style="padding:10px 14px;border:1px solid #2a2d52;border-radius:12px;background:#171c3a;color:#fff;cursor:pointer">
-                  Get quick score
-                </button>
-                <!-- spinner -->
-                <div aria-label="loading" id="miniSpinner" style="display:none;width:24px;height:24px;position:relative">
-                  <div class="spinseg" style="position:absolute;inset:0;border-radius:50%;border:3px solid transparent;border-top-color:#9aa6ff;animation:spin 1s linear infinite"></div>
-                  <div class="spinseg" style="position:absolute;inset:4px;border-radius:50%;border:3px solid transparent;border-right-color:#9aa6ff;animation:spin 1.4s linear infinite"></div>
-                  <div class="spinseg" style="position:absolute;inset:8px;border-radius:50%;border:3px solid transparent;border-bottom-color:#9aa6ff;animation:spin 1.8s linear infinite"></div>
-                </div>
-              </div>
-              <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
-              <div id="miniError" style="display:none;color:#ffc0cb;margin-top:8px"></div>
-              <div id="miniStatus" class="muted" style="margin-top:6px;min-height:18px"></div>
-            </div>
-
-            <!-- RIGHT -->
-            <div class="mini-right">
-              <div class="mini-result-card" id="miniResult" style="display:none">
-                <svg aria-label="score" height="120" id="miniDonut" viewBox="0 0 36 36" width="120">
-                  <path d="M18 2 a 16 16 0 1 1 0 32 a 16 16 0 1 1 0 -32" fill="none" stroke="#12163b" stroke-width="4"></path>
-                  <path d="M18 2 a 16 16 0 1 1 0 32 a 16 16 0 1 1 0 -32"
-                        fill="none" id="miniArc" stroke="#6aa6ff"
-                        stroke-dasharray="0,100" stroke-linecap="round" stroke-width="4"></path>
-                  <g id="miniSegs"></g>
-                  <circle cx="18" cy="18" fill="#0f1220" r="10"></circle>
-                  <text fill="#ffffff" font-size="10" font-weight="800" id="miniPct" text-anchor="middle" x="18" y="20">0%</text>
-                  <text id="miniCap" x="18" y="26" text-anchor="middle" fill="#9aa0d0" font-size="3.2" font-weight="600">Performance</text>
-                </svg>
-              </div>
-            </div>
-
-            <!-- Text summary -->
-            <div class="audit-result" id="audit-result" style="width:100%;margin-top:.5rem;font-size:.95rem;opacity:.9"></div>
-          </div>
-
-          <style>
-            .mini-audit-grid{display:grid;grid-template-columns:560px 260px;justify-content:center;align-items:center;gap:28px}
-            .mini-result-card{display:flex;align-items:center;justify-content:center;width:220px;height:160px;background:#0f142e;border:1px solid #2a2f56;border-radius:18px;justify-self:center}
-            @media (max-width:980px){.mini-audit-grid{grid-template-columns:1fr;justify-items:center}.mini-result-card{margin:10px 0 0;width:200px;height:150px}}
-            #audit-result .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.5rem;padding:0;margin:.5rem 0;list-style:none}
-            #audit-result .metrics li{padding:.5rem .75rem;border:1px solid rgba(255,255,255,.08);border-radius:.75rem}
-            .metric-chip{display:inline-flex;align-items:center;gap:6px;background:#10163a;border:1px solid #2a2f56;border-radius:8px;padding:4px 8px;cursor:pointer;user-select:none;transition:transform .08s ease,border-color .15s ease,background-color .15s ease}
-            .metric-chip:hover,.metric-chip:focus{border-color:#4963ff;background:#121a44;outline:none;transform:translateY(-1px)}
-            .metric-dot{display:inline-block;width:10px;height:10px;border-radius:50%}
-          </style>
-
-          <!-- Inline runner -->
-          <script>
-            (function(){
-              const FN_URL='/.netlify/functions/audit';
-              const PSI_KEY=(document.querySelector('meta[name="psi-key"]')?.content||'').trim();
-              const PSI_URL='/api/psi';
-              const metricHelp={FCP:'First thing appears: How quickly something shows up on the page. Faster means the page feels alive sooner.',SI:'Speed Index: How quickly the page fills in with stuff you can see. Lower time is better.',LCP:'Largest thing appears: When the biggest picture or block of text shows. This tells you when the main content is ready.',TTI:'Ready to use: When the page is done being busy and your clicks work right away.',TBT:'Too Busy Time: Time the page is too busy to respond to you. Less busy time is better.',CLS:'Page jumping: How much things move around as it loads. Less moving means easier to read and tap.'};
-              function normalize(u){if(!u)return'';u=u.trim();if(!/^https?:\/\//i.test(u))u='https://'+u;return u}
-              function setSpin(v){var el=document.getElementById('miniSpinner');if(el)el.style.display=v?'inline-block':'none'}
-              function setErr(){var e=document.getElementById('miniError');if(e){e.textContent='';e.style.display='none'}var r=document.getElementById('miniResult');if(r){r.style.display='none'}}
-              function setStatus(msg){var s=document.getElementById('miniStatus');if(s)s.textContent=msg||''}
-              function setFriendlyFail(u){var s=document.getElementById('miniStatus');if(!s)return;const link='https://pagespeed.web.dev/report?url='+encodeURIComponent(u);s.innerHTML='Couldn’t run a quick score for this URL. Some sites block Google Lighthouse. <a href="'+link+'" target="_blank" rel="noopener">Open the full Google report</a> or try another page (like /home).'}
-              function ringSegment(parentId,segments){const g=document.getElementById(parentId);if(!g)return;g.innerHTML='';let offset=0;segments.forEach(seg=>{const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx','18');c.setAttribute('cy','18');c.setAttribute('r','17.2');c.setAttribute('fill','none');c.setAttribute('stroke',seg.color);c.setAttribute('stroke-width','1.6');c.setAttribute('stroke-linecap','butt');c.setAttribute('stroke-dasharray',seg.pct.toFixed(2)+',100');c.setAttribute('stroke-dashoffset',(-offset).toFixed(2));g.appendChild(c);offset+=seg.pct})}
-              function show(data){
-                var pct=Math.max(0,Math.min(100,(data.metrics&&(data.metrics.score||data.metrics.score===0))?data.metrics.score:(data.overall||0)));
-                var arc=document.getElementById('miniArc');var pctText=document.getElementById('miniPct');var len=100;
-                (function ensureDecor(){const svg=document.getElementById('miniDonut');if(!svg)return;let defs=svg.querySelector('defs');if(!defs){defs=document.createElementNS('http://www.w3.org/2000/svg','defs');svg.insertBefore(defs,svg.firstChild)}let grad=svg.querySelector('#gradMain');const startEnd=(function(score){if(score<50)return['#ff6a6a','#ffb74d'];if(score<85)return['#7aa2ff','#63e6be'];return['#63e6be','#22d3ee'];})(pct);if(!grad){grad=document.createElementNS('http://www.w3.org/2000/svg','linearGradient');grad.setAttribute('id','gradMain');grad.setAttribute('x1','0%');grad.setAttribute('y1','0%');grad.setAttribute('x2','100%');grad.setAttribute('y2','0%');defs.appendChild(grad);const s=document.createElementNS('http://www.w3.org/2000/svg','stop');s.setAttribute('offset','0%');grad.appendChild(s);const e=document.createElementNS('http://www.w3.org/2000/svg','stop');e.setAttribute('offset','100%');grad.appendChild(e)}const stops=grad.querySelectorAll('stop');if(stops[0])stops[0].setAttribute('stop-color',startEnd[0]);if(stops[1])stops[1].setAttribute('stop-color',startEnd[1]);let filt=svg.querySelector('#glow');if(!filt){filt=document.createElementNS('http://www.w3.org/2000/svg','filter');filt.setAttribute('id','glow');const fe=document.createElementNS('http://www.w3.org/2000/svg','feDropShadow');fe.setAttribute('dx','0');fe.setAttribute('dy','2');fe.setAttribute('stdDeviation','1.6');fe.setAttribute('flood-color','#1b2454');fe.setAttribute('flood-opacity','.7');filt.appendChild(fe);defs.appendChild(filt)}arc&&arc.setAttribute('stroke','url(#gradMain)');arc&&arc.setAttribute('stroke-width','6');arc&&arc.setAttribute('stroke-linecap','round');arc&&arc.setAttribute('filter','url(#glow)')})();
-                (function animateTo(){const target=pct;const prev=(window._miniPrevPct==null?0:window._miniPrevPct);const start=performance.now();const dur=500;function step(t){const p=Math.min(1,(t-start)/dur);const ease=1-Math.pow(1-p,2);const val=Math.round(prev+(target-prev)*ease);if(arc){arc.setAttribute('stroke-dasharray',val+','+(len-val))}if(pctText){pctText.textContent=val+'%'}if(p<1)requestAnimationFrame(step);else window._miniPrevPct=target}requestAnimationFrame(step)})();
-                if(pctText)pctText.textContent=pct+'%';var mr=document.getElementById('miniResult');if(mr)mr.style.display='flex';var err=document.getElementById('miniError');if(err)err.style.display='none';setStatus('');
-                (function(){var card=document.getElementById('miniResult');if(card){var raw=(document.getElementById('miniUrl')&&document.getElementById('miniUrl').value||'').trim();if(raw&&!/^https?:\/\//i.test(raw))raw='https://'+raw;card.dataset.auditUrl=raw;card.title='Open full report';card.classList.add('clickable-result');card.onclick=function(){var u=encodeURIComponent(card.dataset.auditUrl||'');window.location.href='audit.html'+(u?('?url='+u):'')}}})();
-                if(data._contrib&&Array.isArray(data._contrib)&&data._contrib.length){
-                  ringSegment('miniSegs',data._contrib);
-                  const out=document.getElementById('audit-result');if(out){const legend=document.createElement('div');legend.style.marginTop='.25rem';legend.innerHTML='<div class="muted" style="margin:.25rem 0">What drives this score</div>'+'<ul id="miniLegendList" style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.5rem">'+data._contrib.map(s=>{const tip=metricHelp[s.label]||'';return '<li data-k="'+s.label+'" role="button" title="'+tip.replace(/&/g,'&amp;').replace(/\"/g,'&quot;')+'" aria-label="'+tip.replace(/&/g,'&amp;').replace(/\"/g,'&quot;')+'" tabindex="0" class="metric-chip"><span class="metric-dot" style="background:'+s.color+'"></span><span>'+s.label+' '+Math.round(s.pct)+'%</span></li>'}).join('')+'</ul>';const old=document.getElementById('miniLegend');if(old)old.remove();legend.id='miniLegend';out.appendChild(legend);(function(){const list=document.getElementById('miniLegendList');if(!list)return;let explain=document.getElementById('miniExplain');if(!explain){explain=document.createElement('div');explain.id='miniExplain';explain.className='muted';explain.style.cssText='margin-top:.25rem;background:#0f1220;border:1px solid #2a2f56;border-radius:8px;padding:8px 10px;display:none';legend.appendChild(explain)}list.addEventListener('click',function(ev){const li=ev.target.closest('li[data-k]');if(!li)return;const key=li.getAttribute('data-k');const desc=metricHelp[key]||'';explain.innerHTML='<strong>'+key+':</strong> '+desc;explain.style.display='block'});list.addEventListener('keydown',function(ev){if((ev.key==='Enter'||ev.key===' ')&&ev.target&&ev.target.matches('li[data-k]')){ev.preventDefault();ev.target.click()}})})()}
-                } else {const g=document.getElementById('miniSegs');if(g)g.innerHTML=''}
-              }
-              function toMetricsFromPSI(json){const lr=(json&&json.lighthouseResult)||{};return{ok:true,metrics:{score:Math.round(((lr.categories&&lr.categories.performance&&lr.categories.performance.score)||0)*100),fcp:lr.audits&&lr.audits['first-contentful-paint']&&lr.audits['first-contentful-paint'].displayValue,lcp:lr.audits&&lr.audits['largest-contentful-paint']&&lr.audits['largest-contentful-paint'].displayValue,cls:lr.audits&&lr.audits['cumulative-layout-shift']&&lr.audits['cumulative-layout-shift'].displayValue,tbt:lr.audits&&lr.audits['total-blocking-time']&&lr.audits['total-blocking-time'].displayValue,speedIndex:lr.audits&&lr.audits['speed-index']&&lr.audits['speed-index'].displayValue}}}
-              async function callPSI(url,strategy){setStatus('Running Google PageSpeed '+strategy+' test…');if(!PSI_KEY)throw new Error('Missing PSI key');const qs=new URLSearchParams();qs.set('url',url);qs.set('strategy',strategy);['performance','accessibility','best-practices','seo'].forEach(c=>qs.append('category',c));qs.set('key',PSI_KEY);const api=PSI_URL+'?'+qs.toString();const r=await fetch(api);const t=await r.text();if(!r.ok)throw new Error('PSI '+r.status+': '+t.slice(0,120));let j={};try{j=JSON.parse(t)}catch(_e){throw new Error('Bad PSI response')}return j}
-              async function run(){
-                var input=document.getElementById('miniUrl');var u=normalize(input&&input.value);if(!u){setErr('Enter a URL');return}
-                setSpin(true);setStatus('Submitting URL to audit…');
-                try{
-                  let ok=false;
-                  try{
-                    setStatus('Contacting audit function…');
-                    const res=await fetch(FN_URL+'?url='+encodeURIComponent(u));
-                    const ct=res.headers.get('content-type')||'';const txt=await res.text();let data={};try{data=ct.includes('application/json')?JSON.parse(txt):{}}catch(_e){data={}};if(res.ok&&data&&data.ok){show(data);ok=true}
-                  }catch(_network){}
-                  if(!ok){
-                    let j2;try{j2=await callPSI(u,'mobile')}catch(_e1){j2=await callPSI(u,'desktop')}
-                    const lr=j2.lighthouseResult||{};const audits=lr.audits||{};
-                    const sFcp=(audits['first-contentful-paint']&&audits['first-contentful-paint'].score)??null;
-                    const sSi=(audits['speed-index']&&audits['speed-index'].score)??null;
-                    const sLcp=(audits['largest-contentful-paint']&&audits['largest-contentful-paint'].score)??null;
-                    const sTbt=(audits['total-blocking-time']&&audits['total-blocking-time'].score)??null;
-                    const sCls=(audits['cumulative-layout-shift']&&audits['cumulative-layout-shift'].score)??null;
-                    const sTti=(audits['interactive']&&audits['interactive'].score)??null;
-                    const weights={FCP:10,SI:10,LCP:25,TTI:10,TBT:30,CLS:15};
-                    const have=[sFcp!=null&&['FCP',sFcp],sSi!=null&&['SI',sSi],sLcp!=null&&['LCP',sLcp],sTti!=null&&['TTI',sTti],sTbt!=null&&['TBT',sTbt],sCls!=null&&['CLS',sCls]].filter(Boolean);
-                    const totalW=have.reduce((sum,[k])=>sum+(weights[k]||0),0)||1;
-                    const colors={FCP:'#8ab4ff',SI:'#7dd3fc',LCP:'#60d394',TTI:'#fbbf24',TBT:'#f87171',CLS:'#c084fc'};
-                    const contrib=have.map(([k,score])=>({label:k,pct:(score*(weights[k]||0)/totalW)*100,color:colors[k]||'#6aa6ff'}));
-                    const payload=toMetricsFromPSI(j2);payload._contrib=contrib;setStatus('Scoring results…');show(payload);
-                  }
-                }catch(e){setErr();setFriendlyFail(u)}finally{setSpin(false)}
-              }
-              var runBtn=document.getElementById('miniRun');if(runBtn)runBtn.addEventListener('click',run);
-              var miniUrl=document.getElementById('miniUrl');if(miniUrl){miniUrl.addEventListener('keydown',function(e){if(e.key==='Enter')run()})}
-              window.__miniRun=run;
-            })();
-          </script>
-        </section>
-        <!-- ===== /MINI-AUDIT WIDGET ===== -->
 
         <div class="hero-ctas">
           <a class="btn" href="contact.html">Get a free audit</a>
@@ -256,9 +127,10 @@
       </div>
     </section>
   </main>
-<footer>
-<!-- Shared footer --><div data-include="partials/footer.html"></div>
-</footer>
+
+  <footer>
+    <div data-include="partials/footer.html"></div>
+  </footer>
 
   <!-- Rotate keyword -->
   <script>
@@ -279,117 +151,21 @@
           const path=el.getAttribute("data-include");
           const res=await fetch(path,{cache:"no-cache"});
           el.outerHTML=await res.text();
-          if(window.navInit) window.navInit(); // keep mobile menu working after includes
+          if(window.navInit) window.navInit();
         }catch(e){ console.error("Include failed:", e); }
       });
     })();
   </script>
 
-<script>
-  (function stickBottom(){
-    document.documentElement.style.minHeight = '100%';
-    document.body.style.minHeight = '100vh';
-    document.body.style.display = 'flex';
-    document.body.style.flexDirection = 'column';
-    // push last element (the footer include) to bottom
-    const last = document.body.lastElementChild;
-    if (last) last.style.marginTop = 'auto';
-  })();
-  </script>
-  
-
   <script>
-    (function () {
-      const FUNCTIONS_BASE = (document.querySelector('meta[name="functions-base"]')?.content || '').replace(/\/$/, '');
-    
-      async function callAudit(target) {
-        const rel = '/.netlify/functions/audit?url=' + encodeURIComponent(target);
-        const abs = FUNCTIONS_BASE ? `${FUNCTIONS_BASE}/.netlify/functions/audit?url=${encodeURIComponent(target)}` : null;
-    
-        let text = '', ct = '';
-        let resp = await fetch(rel).catch(() => null);
-        if (resp) {
-          ct = resp.headers.get('content-type') || '';
-          text = await resp.text();
-          if (!(resp.ok && ct.includes('application/json'))) resp = null;
-        }
-    
-        if (!resp && abs) {
-          const r2 = await fetch(abs);
-          const ct2 = r2.headers.get('content-type') || '';
-          const t2 = await r2.text();
-          if (!(r2.ok && ct2.includes('application/json'))) {
-            throw new Error(t2?.slice(0, 140) || ('HTTP ' + r2.status));
-          }
-          return JSON.parse(t2);
-        }
-    
-        if (!resp) throw new Error('Function not reachable. Check DNS or FUNCTIONS_BASE meta.');
-        return JSON.parse(text);
-      }
-    
-      function $(sel) { return document.querySelector(sel); }
-    
-      function normalize(u) {
-        u = (u || '').trim().replace(/\s+/g, '');
-        if (!u) return '';
-        if (!/^https?:\/\//i.test(u)) u = 'https://' + u.replace(/^\/+/, '');
-        try {
-          new URL(u);
-        } catch {
-          const tmp = u.replace(/^https?:\/\//i, '');
-          if (!tmp.includes('.')) {
-            u = 'https://' + tmp + '.com';
-            try { new URL(u); } catch { return ''; }
-          } else {
-            return '';
-          }
-        }
-        return u;
-      }
-    
-      const input = $('#audit-url');
-      const btn = $('#audit-btn');
-      const out = $('#audit-result');
-      if (!input || !btn || !out) return;
-    
-      async function run() {
-        const target = normalize(input.value);
-        if (!target) {
-          out.textContent = 'Please enter a valid URL like example.com';
-          return;
-        }
-    
-        out.textContent = 'Running audit…';
-        btn.disabled = true;
-    
-        try {
-          const data = await callAudit(target);
-          if (!data.ok) throw new Error(data.error || 'Audit failed');
-    
-          const m = data.metrics || {};
-          out.innerHTML = `
-            <div class="score">Performance score: <strong>${m.score ?? '-'}</strong>/100</div>
-            <ul class="metrics">
-              <li>FCP: ${m.fcp || '-'}</li>
-              <li>LCP: ${m.lcp || '-'}</li>
-              <li>CLS: ${m.cls || '-'}</li>
-              <li>TBT: ${m.tbt || '-'}</li>
-              <li>Speed Index: ${m.speedIndex || '-'}</li>
-            </ul>
-          `;
-        } catch (e) {
-          out.textContent = e?.message || "Couldn't reach that site. Please check the URL.";
-        } finally {
-          btn.disabled = false;
-        }
-      }
-    
-      btn.addEventListener('click', run);
-      input.addEventListener('keydown', e => { if (e.key === 'Enter') run(); });
+    (function stickBottom(){
+      document.documentElement.style.minHeight = '100%';
+      document.body.style.minHeight = '100vh';
+      document.body.style.display = 'flex';
+      document.body.style.flexDirection = 'column';
+      const last = document.body.lastElementChild;
+      if (last) last.style.marginTop = 'auto';
     })();
-    </script>
-    
-
+  </script>
 </body>
 </html>
