@@ -31,6 +31,7 @@
     .clickable-result{cursor:pointer;transition:transform .12s ease,box-shadow .12s ease}
     .clickable-result:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.25)}
 
+    /* Buttons (theme-aligned) */
     .btn{display:inline-block;padding:10px 14px;border:1px solid #2a2d52;border-radius:12px;background:#171c3a;color:#fff;text-decoration:none;cursor:pointer;transition:background .15s ease,border-color .15s ease,transform .08s ease}
     .btn:hover{background:#1e254e;border-color:#3a48a0;transform:translateY(-1px)}
     .btn.ghost{background:transparent;border-color:#6aa6ff;color:#cfe6ff}
@@ -56,6 +57,7 @@
 </head>
 
 <body>
+  <!-- Shared header -->
   <div data-include="partials/header.html"></div>
 
   <main id="content">
@@ -70,7 +72,7 @@
         <h1 class="hero-title">Your Go-To Digital Marketing Agency in Apple Valley, MN for <span class="kw-rotate">Create Website</span></h1>
 
         <div class="hero-ctas">
-          <a class="btn" href="contact.html">Get a free audit</a>
+          <a class="btn" href="contact.html">Get in touch</a>
           <a class="btn ghost" href="services/web-design.html">See services</a>
         </div>
         <ul class="pill-list">
@@ -129,6 +131,7 @@
   </main>
 
   <footer>
+    <!-- Shared footer -->
     <div data-include="partials/footer.html"></div>
   </footer>
 
@@ -151,7 +154,7 @@
           const path=el.getAttribute("data-include");
           const res=await fetch(path,{cache:"no-cache"});
           el.outerHTML=await res.text();
-          if(window.navInit) window.navInit();
+          if(window.navInit) window.navInit(); // keep mobile menu working after includes
         }catch(e){ console.error("Include failed:", e); }
       });
     })();
@@ -163,6 +166,7 @@
       document.body.style.minHeight = '100vh';
       document.body.style.display = 'flex';
       document.body.style.flexDirection = 'column';
+      // push last element (the footer include) to bottom
       const last = document.body.lastElementChild;
       if (last) last.style.marginTop = 'auto';
     })();
