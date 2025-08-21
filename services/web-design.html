@@ -1,10 +1,21 @@
-<!DOCTYPE html>
+# Create an improved version of the user's web-design.html with the requested tweaks.
+
+from pathlib import Path
+
+html = r"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
 
   <!-- Structured data -->
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tiredchefonline.com/index.html"},{"@type":"ListItem","position":2,"name":"Services","item":"https://tiredchefonline.com/services"}]}</script>
+  <script type="application/ld+json">{
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://tiredchefonline.com/index.html"},
+      {"@type":"ListItem","position":2,"name":"Website Design","item":"https://tiredchefonline.com/services/web-design.html"}
+    ]
+  }</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TiredChefOnline","url":"https://tiredchefonline.com","logo":"https://tiredchefonline.com/assets/brand/chef.png"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"TiredChefOnline","url":"https://tiredchefonline.com","potentialAction":{"@type":"SearchAction","target":"https://tiredchefonline.com/sitemap.html?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
 
@@ -37,9 +48,6 @@
   <link rel="icon" sizes="32x32" type="image/png" href="../assets/brand/chef-32x32.png"/>
   <link rel="icon" sizes="16x16" type="image/png" href="../assets/brand/favicon-16.png"/>
   <link rel="shortcut icon" href="../favicon.ico"/>
-
-  <!-- Force HTTPS -->
-  <script>(function(){try{if(location.protocol==="http:"){location.replace(location.href.replace("http:","https:"));}}catch(e){}})();</script>
 
   <!-- Service schema -->
   <script type="application/ld+json">{
@@ -74,6 +82,9 @@
       <article class="content-main">
         <div class="container prose">
           <p class="lead">We build sites that earn trust and remove friction: modern layout, fast code, SEO-ready structure, and copy that turns “scrolling” into calls, bookings, and orders. No page-builder bloat, no mystery plugins—just clean, durable, easy-to-edit pages.</p>
+
+          <h2 id="apple-valley-web-design">Web Design for Apple Valley, Eagan, Burnsville, and Rosemount</h2>
+          <p>Local pages and clear offers matter in the South Metro. We map services to search intent, add city context where it belongs, and keep internal links simple so people and bots can find the next step fast.</p>
 
           <h2 id="outcomes-we-optimize-for">Outcomes We Optimize For</h2>
           <ul>
@@ -132,26 +143,34 @@
           </ul>
 
           <h2 id="faqs">FAQs</h2>
-          <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
-            <details itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-              <summary><span itemprop="name">How long does a typical build take?</span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></summary>
-              <div class="answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Most small business sites launch in 4–8 weeks depending on content and integrations. We ship in stages so you see progress weekly.</p></div>
+          <!-- Presentational FAQ; JSON-LD below is the canonical source -->
+          <section class="faq">
+            <details>
+              <summary>How long does a typical build take?</summary>
+              <div class="answer"><p>Most small business sites launch in 4–8 weeks depending on content and integrations. We ship in stages so you see progress weekly.</p></div>
             </details>
-            <details itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-              <summary><span itemprop="name">Will the site be fast?</span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></summary>
-              <div class="answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Yes. Lightweight pages, optimized images, caching, and minimal scripts. We aim for strong Core Web Vitals on real devices, not just lab tests.</p></div>
+            <details>
+              <summary>Will the site be fast?</summary>
+              <div class="answer"><p>Yes. Lightweight pages, optimized images, caching, and minimal scripts. We aim for strong Core Web Vitals on real devices, not just lab tests.</p></div>
             </details>
-            <details itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-              <summary><span itemprop="name">Can we edit it ourselves?</span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></summary>
-              <div class="answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Absolutely. You’ll get a simple editing guide and we avoid fragile page-builder stacks. We can handle ongoing updates if you’d rather not.</p></div>
+            <details>
+              <summary>Can we edit it ourselves?</summary>
+              <div class="answer"><p>Absolutely. You’ll get a simple editing guide and we avoid fragile page-builder stacks. We can handle ongoing updates if you’d rather not.</p></div>
             </details>
-            <details itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
-              <summary><span itemprop="name">What about SEO and tracking?</span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></summary>
-              <div class="answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">We ship SEO basics (titles, meta, schema, sitemap) and wire GA4 events + UTM standards so you can see which pages and campaigns drive revenue.</p></div>
+            <details>
+              <summary>What about SEO and tracking?</summary>
+              <div class="answer"><p>We ship SEO basics (titles, meta, schema, sitemap) and wire GA4 events + UTM standards so you can see which pages and campaigns drive revenue.</p></div>
             </details>
           </section>
 
-          <!-- FAQ rich results -->
+          <!-- Related services -->
+          <h2 id="related-services">Related Services</h2>
+          <ul>
+            <li><a href="local-seo.html">Local SEO</a> — get found in Maps and local search.</li>
+            <li><a href="social-media.html">Social Media Marketing</a> — consistent, on-brand content that supports revenue.</li>
+          </ul>
+
+          <!-- FAQ rich results (canonical) -->
           <script type="application/ld+json">{
             "@context":"https://schema.org",
             "@type":"FAQPage",
@@ -206,28 +225,6 @@
   <script src="../assets/script.min.js"></script>
   <script defer src="../assets/js/nav-2025.js"></script>
 
-  <!-- Nudge helper for offscreen fixed elements -->
-  <script>
-    (function(){
-      function nudgeFixedRight(){
-        try{
-          var nodes=document.querySelectorAll('body *');
-          var vw=window.innerWidth||document.documentElement.clientWidth;
-          nodes.forEach(function(el){
-            var cs=getComputedStyle(el);
-            if(cs.position!=='fixed') return;
-            var w=el.getBoundingClientRect();
-            var rightProp=parseFloat(cs.right);
-            var offscreen=(w.right>vw-2)||(rightProp<0)||(w.left>=vw-2);
-            if(offscreen){ el.classList.add('nudge-right'); el.setAttribute('data-nudged','1'); }
-          });
-        }catch(e){}
-      }
-      if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded', nudgeFixedRight);} else {nudgeFixedRight();}
-      window.addEventListener('resize', nudgeFixedRight);
-    })();
-  </script>
-
   <!-- Include loader (replaces the header/footer divs) -->
   <script>
     (function () {
@@ -236,10 +233,15 @@
         try{
           const res=await fetch(el.getAttribute("data-include"),{cache:"no-cache"});
           el.outerHTML=await res.text();
-          if(window.navInit) window.navInit(); // keep mobile menu working
+          if(window.navInit) window.navInit();
         }catch(e){ console.error("Include failed:", e); }
       });
     })();
   </script>
 </body>
 </html>
+"""
+
+out_path = Path("/mnt/data/web-design.tweaked.html")
+out_path.write_text(html, encoding="utf-8")
+str(out_path)

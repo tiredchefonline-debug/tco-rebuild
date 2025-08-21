@@ -295,5 +295,99 @@
       window.addEventListener('resize', nudgeFixedRight);
     })();
   </script>
+
+<script>
+  (function(){
+    const params = new URLSearchParams(location.search);
+    const q = params.get('q') || '';
+    const input = document.getElementById('q');
+    const groups = [...document.querySelectorAll('.group-card')];
+  
+    if (input) input.value = q;
+  
+    // Wrap the label text once and store original text
+    function prepareLabels(){
+      document.querySelectorAll('.linkcard').forEach(a=>{
+        // if we already prepared, skip
+        if (a.querySelector('.label')) return;
+  
+        // find trailing text node (after the svg)
+        let last = a.lastChild;
+        // If last child is whitespace or not a text node, build label from textContent
+        let original = '';
+        if (last && last.nodeType === 3) {
+          original = last.nodeValue.trim();
+          a.removeChild(last);
+        } else {
+          original = (a.textContent || '').trim();
+          // remove everything except svg so we don't double up
+          const svg = a.querySelector('svg');
+          a.innerHTML = '';
+          if (svg) a.appendChild(svg);
+        }
+        const span = document.createElement('span');
+        span.className = 'label';
+        span.dataset.original = original;
+        span.textContent = original;
+        a.appendChild(span);
+      });
+    }
+  
+    function highlightHTML(text, term){
+      if (!term) return text;
+      const i = text.toLowerCase().indexOf(term.toLowerCase());
+      if (i === -1) return text;
+      return text.slice(0,i) + '<mark>' + text.slice(i, i+term.length) + '</mark>' + text.slice(i+term.length);
+    }
+  
+    function applyFilter(term){
+      const t = (term||'').trim().toLowerCase();
+      groups.forEach(card=>{
+        const links = [...card.querySelectorAll('.linkcard')];
+        let visible = 0;
+  
+        links.forEach(a=>{
+          const labelEl = a.querySelector('.label');
+          const base = (labelEl?.dataset.original || '').toLowerCase();
+          const keys = ((a.dataset.keywords || '') + ' ' + base).trim();
+          const hit = !t || keys.includes(t);
+  
+          a.style.display = hit ? '' : 'none';
+          if (labelEl) {
+            const original = labelEl.dataset.original || labelEl.textContent || '';
+            labelEl.innerHTML = highlightHTML(original, t);
+          }
+          if (hit) visible++;
+        });
+  
+        const counter = card.querySelector('[data-count]');
+        if (counter) counter.textContent = visible + ' link' + (visible===1?'':'s');
+        card.style.display = visible ? '' : 'none';
+      });
+    }
+  
+    // init
+    prepareLabels();
+    applyFilter(q);
+  
+    // live filter
+    input && input.addEventListener('input', e=>applyFilter(e.target.value));
+  
+    // keyboard shortcuts: / and Cmd/Ctrl+K
+    window.addEventListener('keydown', (e)=>{
+      if (e.key === '/' && document.activeElement !== input){
+        e.preventDefault(); input.focus(); input.select();
+      }
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k'){
+        e.preventDefault(); input.focus(); input.select();
+      }
+      if (e.key === 'Escape' && input === document.activeElement){
+        input.value=''; applyFilter('');
+      }
+    });
+  })();
+  </script>
+
+
 </body>
 </html>
