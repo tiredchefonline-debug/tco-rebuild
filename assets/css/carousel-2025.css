@@ -135,3 +135,36 @@
     *{animation:none!important; transition:none!important}
   }
 
+/* === FAQ fix === */
+#faqs details {
+    margin: 0 0 12px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 8px;
+    padding: 8px 12px;
+    background: rgba(255,255,255,.02);
+  }
+  
+  #faqs summary {
+    cursor: pointer;
+    list-style: none;          /* removes browser marker */
+    font-weight: 600;
+    position: relative;
+    padding-left: 1.4em;       /* space for arrow */
+  }
+  
+  #faqs summary::before {
+    content: "▸";              /* custom arrow */
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: transform .2s ease;
+  }
+  
+  #faqs details[open] summary::before {
+    transform: rotate(90deg);  /* rotate arrow when open */
+  }
+  /* === FAQ fix (2025-08-20) === */
+#faqs details{margin:0 0 12px;border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:8px 12px;background:rgba(255,255,255,.02)}
+#faqs summary{cursor:pointer;list-style:none;font-weight:600;position:relative;padding-left:1.4em}
+#faqs summary::before{content:"?";position:absolute;left:0;top:0;transition:transform .2s ease}
+#faqs details[open] summary::before{transform:rotate(90deg)}
