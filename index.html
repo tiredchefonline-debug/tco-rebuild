@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
 
-  <!-- Structured data (keep existing + add LocalBusiness) -->
+  <!-- Structured data -->
   <script type="application/ld+json">{
     "@context":"https://schema.org",
     "@type":"Organization",
@@ -16,18 +16,7 @@
     "@type":"WebSite",
     "name":"TiredChefOnline",
     "url":"https://tiredchefonline.com",
-    "potentialAction":{
-      "@type":"SearchAction",
-      "target":"https://tiredchefonline.com/sitemap.html?q={search_term_string}",
-      "query-input":"required name=search_term_string"
-    }
-  }</script>
-  <script type="application/ld+json">{
-    "@context":"https://schema.org",
-    "@type":"BreadcrumbList",
-    "itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://tiredchefonline.com/index.html"}
-    ]
+    "potentialAction":{"@type":"SearchAction","target":"https://tiredchefonline.com/sitemap.html?q={search_term_string}","query-input":"required name=search_term_string"}
   }</script>
   <script type="application/ld+json">{
     "@context": "https://schema.org",
@@ -35,77 +24,143 @@
     "name": "TiredChefOnline",
     "url": "https://tiredchefonline.com",
     "image": "https://tiredchefonline.com/assets/brand/chef.png",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Apple Valley",
-      "addressRegion": "MN",
-      "addressCountry": "US"
-    },
-    "areaServed": ["Apple Valley MN","Eagan MN","Burnsville MN","Rosemount MN"],
-    "telephone": ""
+    "address": {"@type": "PostalAddress","addressLocality": "Apple Valley","addressRegion": "MN","addressCountry": "US"},
+    "areaServed": ["Apple Valley MN","Eagan MN","Burnsville MN","Rosemount MN"]
   }</script>
 
-  <!-- Social/OG -->
-  <meta name="twitter:image" content="https://tiredchefonline.com/assets/brand/chef.png"/>
-  <meta name="twitter:title" content="Get Found in Apple Valley MN — Local SEO, Mobile Web Design & Social Marketing | TiredChefOnline"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta property="og:site_name" content="TiredChefOnline"/>
-  <meta property="og:image" content="https://tiredchefonline.com/assets/brand/chef.png"/>
-  <meta property="og:title" content="Get Found in Apple Valley MN — Local SEO, Mobile Web Design & Social Marketing | TiredChefOnline"/>
-  <meta property="og:description" content="TiredChefOnline helps Apple Valley, MN small businesses get found online—fast-loading mobile websites, local SEO, and effective social media marketing for measurable growth."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://tiredchefonline.com/"/>
+  <!-- OG / Twitter -->
+  <meta property="og:site_name" content="TiredChefOnline">
+  <meta property="og:title" content="Get Found in Apple Valley MN — Local SEO, Mobile Web Design & Social Marketing | TiredChefOnline">
+  <meta property="og:description" content="TiredChefOnline helps Apple Valley, MN small businesses get found online—fast-loading mobile websites, local SEO, and effective social media marketing for measurable growth.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tiredchefonline.com/">
+  <meta property="og:image" content="https://tiredchefonline.com/assets/brand/chef.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Get Found in Apple Valley MN — Local SEO, Mobile Web Design & Social Marketing | TiredChefOnline">
+  <meta name="twitter:image" content="https://tiredchefonline.com/assets/brand/chef.png">
 
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
   <title>Get Found in Apple Valley MN — Local SEO, Mobile Web Design & Social Marketing | TiredChefOnline</title>
   <meta name="description" content="TiredChefOnline helps Apple Valley, MN small businesses get found online—fast-loading mobile websites, local SEO, and effective social media marketing for measurable growth.">
+  <link rel="canonical" href="https://tiredchefonline.com/"/>
 
-  <!-- CSS -->
+  <!-- Your existing CSS -->
   <link rel="stylesheet" href="assets/styles.min.css"/>
   <link rel="stylesheet" href="assets/css/modern-2025.min.css"/>
-  <link rel="stylesheet" href="assets/css/theme-2025.css">
 
+  <!-- 2025 theme (inline so nothing breaks; no extra files needed) -->
   <style>
-    /* Minimal helpers that won't clash with your theme */
-    .kw-wrap{display:inline-block; position:relative; min-width: 18ch}
-    .kw-rotate{color:#ff7a1a; font-weight:900; white-space:nowrap; display:inline-block; opacity:1; transition:opacity .28s ease}
+    :root{
+      --surface:rgba(255,255,255,.04);
+      --surface-2:rgba(255,255,255,.06);
+      --brand:#6aa6ff; --accent:#ff7a1a; --muted:#b7c2ff;
+      --radius-xl:18px; --radius-2xl:26px;
+      --shadow-xl:0 20px 40px rgba(0,0,0,.45);
+      --shadow-sm:0 10px 24px rgba(0,0,0,.25);
+      --container:1180px;
+    }
+    .container{max-width:var(--container)}
+    .section{padding:clamp(48px,8vw,96px) 0}
+    h1,h2,h3{letter-spacing:.2px}
+    h2{font-size:clamp(30px,3.5vw,44px);line-height:1.15;margin:0 0 18px}
+    h3{font-size:clamp(21px,2.3vw,26px);margin:0 0 10px}
+
+    /* Hero polish */
+    .home-hero .kicker{color:var(--muted)}
+    .kw-wrap{display:inline-block;min-width:20ch;position:relative}
+    .kw-rotate{color:var(--accent);font-weight:900;white-space:nowrap;display:inline-block;transition:opacity .28s ease}
     .kw-rotate.is-fading{opacity:0}
-    .home-hero .pill-list{margin-top:.5rem}
-    .numbered{counter-reset:step; list-style:none; padding-left:0}
-    .numbered li{margin:0 0 .75rem 0; padding-left:0}
-    .text-link{color:#6aa6ff; text-decoration:underline; text-underline-offset:2px}
-    .feature-list{list-style:disc; padding-left:1.25rem}
-    .mini{opacity:.85; font-size:.95rem}
-    .faq details{margin:.5rem 0}
-    .faq summary{cursor:pointer}
-    .banner-row{display:flex; gap:1rem; align-items:center; justify-content:space-between; flex-wrap:wrap}
-    .btn{display:inline-block;padding:10px 14px;border:1px solid #2a2d52;border-radius:12px;background:#171c3a;color:#fff;text-decoration:none;cursor:pointer;transition:background .15s ease,border-color .15s ease,transform .08s ease}
-    .btn:hover{background:#1e254e;border-color:#3a48a0;transform:translateY(-1px)}
-    .btn.btn-primary{background:#1e254e}
-    .btn.ghost{background:transparent;border-color:#6aa6ff;color:#cfe6ff}
-    .home-hero .kicker{opacity:.85; letter-spacing:.04em}
+
+    /* Elevated surfaces + cards */
+    .surface{
+      background:
+        radial-gradient(1200px 600px at 100% -10%, rgba(106,166,255,.10), transparent 60%),
+        radial-gradient(800px 400px at -10% 110%, rgba(255,122,26,.08), transparent 60%),
+        var(--surface);
+      -webkit-backdrop-filter:saturate(120%) blur(6px);
+      backdrop-filter:saturate(120%) blur(6px);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius-2xl);
+      box-shadow:var(--shadow-xl);
+      padding:clamp(22px,3vw,36px);
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .surface:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.18)}
+
+    .card{
+      background:var(--surface);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow-sm);
+      transition:transform .16s ease, border-color .16s ease;
+    }
+    .card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.18)}
+
+    .card-grid{display:grid;gap:clamp(14px,3vw,22px);grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+
+    /* Lists */
+    .feature-list,.checklist{list-style:none;margin:14px 0 0;padding-left:0}
+    .feature-list li,.checklist li{position:relative;padding-left:34px;margin:10px 0}
+    .feature-list li::before,.checklist li::before{
+      content:"";position:absolute;left:0;top:6px;width:20px;height:20px;background:#6aa6ff;
+      -webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M20.285 6.709a1 1 0 0 1 0 1.414l-9.192 9.192a1 1 0 0 1-1.414 0L3.715 11.35a1 1 0 1 1 1.414-1.414l4.13 4.13 8.485-8.485a1 1 0 0 1 1.414 0z"/></svg>') center/contain no-repeat;
+              mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M20.285 6.709a1 1 0 0 1 0 1.414l-9.192 9.192a1 1 0 0 1-1.414 0L3.715 11.35a1 1 0 1 1 1.414-1.414l4.13 4.13 8.485-8.485a1 1 0 0 1 1.414 0z"/></svg>') center/contain no-repeat;
+      opacity:.9;transform:scale(.9);transition:transform .18s ease,opacity .18s ease;
+    }
+    .feature-list li:hover::before,.checklist li:hover::before{transform:scale(1);opacity:1}
+
+    /* FAQ */
+    .faq details{background:var(--surface);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-xl);padding:14px 16px;margin:10px 0}
+    .faq details[open]{background:var(--surface-2)}
+    .faq summary{list-style:none;cursor:pointer;position:relative;padding-right:34px;font-weight:600}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{
+      content:"";position:absolute;right:8px;top:10px;width:18px;height:18px;opacity:.8;background:currentColor;
+      -webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M12 15.5l-6-6h12l-6 6z"/></svg>') center/contain no-repeat;
+              mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M12 15.5l-6-6h12l-6 6z"/></svg>') center/contain no-repeat;
+      transition:transform .14s ease;
+    }
+    .faq details[open] summary::after{transform:rotate(180deg)}
+
+    /* CTA banner */
+    .cta-banner{padding:clamp(28px,4vw,44px) 0}
+    .cta-banner .banner-row{
+      background:
+        radial-gradient(600px 220px at 90% 10%, rgba(106,166,255,.16), transparent 60%),
+        radial-gradient(600px 220px at 10% 110%, rgba(255,122,26,.14), transparent 60%),
+        var(--surface);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius-2xl);
+      padding:clamp(18px,3.2vw,28px);
+      box-shadow:var(--shadow-xl);
+      display:flex;gap:1rem;align-items:center;justify-content:space-between;flex-wrap:wrap;
+    }
+
+    /* Buttons */
+    .btn{border-radius:14px;box-shadow:0 8px 18px rgba(0,0,0,.25)}
+    .btn:focus-visible{outline:2px solid transparent;box-shadow:0 0 0 4px rgba(106,166,255,.45),0 8px 18px rgba(0,0,0,.25)}
+    .btn.btn-primary{background:#1e254e;border-color:#3a48a0}
+    .btn.btn-primary:hover{background:#26316a}
+
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
   </style>
 
-  <!-- Icons & Canonical -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/brand/apple-touch-icon.png"/>
   <link rel="icon" sizes="32x32" type="image/png" href="assets/brand/chef-32x32.png"/>
   <link rel="icon" sizes="16x16" type="image/png" href="assets/brand/favicon-16.png"/>
   <link rel="shortcut icon" href="favicon.ico"/>
-  <link rel="canonical" href="https://tiredchefonline.com/"/>
 
-  <!-- Scripts -->
   <script defer src="assets/script.min.js"></script>
 </head>
+
 <body>
   <!-- Shared header include -->
   <div data-include="partials/header.html"></div>
 
   <main id="content">
-
-    <!-- ===== HERO with rotating keywords ===== -->
-    <section class="home-hero hero">
+    <!-- HERO -->
+    <section class="home-hero hero section">
       <div class="container">
         <p class="kicker">Apple Valley • Eagan • Burnsville • Rosemount</p>
         <h1 class="hero-title">
@@ -116,224 +171,173 @@
         </h1>
         <p class="lead">
           We build fast, clear websites and local search visibility for small businesses in the South Metro.
-          No page‑builder bloat—just clean pages that make it obvious how to contact you so more visitors become customers.
+          Clean code, clear messaging, and obvious next steps turn visitors into customers.
         </p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="contact.html">Get a Free Audit</a>
-          <a class="btn ghost" href="services/web-design.html">See how we build</a>
+          <a class="btn" href="services/web-design.html">See how we build</a>
         </div>
-        <ul class="pill-list">
-          <li>Fast responses</li><li>Clear pricing</li><li>Month‑to‑month</li>
-        </ul>
+        <ul class="pill-list"><li>Fast responses</li><li>Clear pricing</li><li>Month-to-month</li></ul>
       </div>
     </section>
 
-    <!-- ===== WHAT WE DO ===== -->
+    <!-- WHY CHOOSE -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="surface">
+          <header class="section-head">
+            <h2>Why choose <span class="brand">TiredChefOnline</span></h2>
+            <p class="lead">Local, practical, and built for speed. You get fast replies, clear pricing, and pages you can actually edit—optimized for today’s Core Web Vitals.</p>
+          </header>
+          <ul class="feature-list card-grid">
+            <li><strong>Clarity first:</strong> who you help, what you offer, why choose you—above the fold.</li>
+            <li><strong>Lightweight stack:</strong> fewer scripts, optimized images, and better Core Web Vitals.</li>
+            <li><strong>Local relevance:</strong> city context and internal links that match how people search.</li>
+            <li><strong>Real tracking:</strong> GA4 events and UTM standards to connect visits to leads.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
     <section id="services" class="section">
       <div class="container">
         <h2>What we do best</h2>
         <div class="card-grid">
-          <article class="card" id="local-seo">
+          <article class="card surface" id="local-seo">
             <h3><a href="services/local-seo.html">Local SEO</a></h3>
-            <p>Get discovered by nearby customers without paying for every click. We align your Google Business Profile, on‑page content, and citations so Google understands what you do and where you do it.</p>
+            <p>Get discovered by nearby customers without paying for every click. We align your Google Business Profile, on-page content, and citations so Google understands what you do and where you do it.</p>
             <ul class="checklist">
               <li>GBP categories, services, photos</li>
               <li>Citation / NAP cleanup</li>
               <li>City context that reads like humans wrote it</li>
             </ul>
-            <a class="text-link" href="services/local-seo.html">Learn our Local SEO approach →</a>
+            <p><a class="text-link" href="services/local-seo.html">Learn our Local SEO approach →</a></p>
           </article>
 
-          <article class="card" id="web-design">
+          <article class="card surface" id="web-design">
             <h3><a href="services/web-design.html">Website Design</a></h3>
-            <p>Conversion‑first pages that load fast and look great on real phones. Clear offers, visible proof, and obvious next steps—tap‑to‑call, book, request estimate, or order online.</p>
+            <p>Conversion-first pages that load fast and look great on real phones. Clear offers and obvious next steps—tap-to-call, book, request estimate, or order online.</p>
             <ul class="checklist">
               <li>Responsive layout, accessible type</li>
               <li>Titles, meta, Open Graph, schema</li>
               <li>Forms wired and validated (no lost leads)</li>
             </ul>
-            <a class="text-link" href="services/web-design.html">See our 90‑day build plan →</a>
+            <p><a class="text-link" href="services/web-design.html">See our 90-day build plan →</a></p>
           </article>
 
-          <article class="card" id="smm">
+          <article class="card surface" id="smm">
             <h3><a href="services/social-media.html">Social Media Marketing</a></h3>
-            <p>Consistent, on‑brand content that supports revenue (not just likes). A 90‑day calendar, reusable short‑video templates, and modest boosts when a post wins.</p>
+            <p>Consistent, on-brand content that supports revenue (not just likes). A 90-day calendar, reusable short-video templates, and modest boosts when a post wins.</p>
             <ul class="checklist">
               <li>Brand voice guide + templates</li>
               <li>Comment / DM triage (no missed leads)</li>
               <li>Performance summary and next steps</li>
             </ul>
-            <a class="text-link" href="services/social-media.html">What our simple social system looks like →</a>
+            <p><a class="text-link" href="services/social-media.html">What our simple social system looks like →</a></p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ===== WHY CHOOSE US (no proof claims) ===== -->
-    <section id="about" class="section">
-      <div class="container">
-        <h2>Why choose TiredChefOnline</h2>
-        <p>
-          We’re a small, local team that keeps things practical. You get fast replies, clear pricing, and pages you can actually edit.
-          Our focus is simple: a site that loads quickly, explains value clearly, and makes the next step obvious.
-        </p>
-        <ul class="feature-list">
-          <li><strong>Clarity first:</strong> who you help, what you offer, why choose you—above the fold.</li>
-          <li><strong>Lightweight stack:</strong> fewer scripts, optimized images, and better Core Web Vitals.</li>
-          <li><strong>Local relevance:</strong> city context and internal links that match how people search.</li>
-          <li><strong>Real tracking:</strong> GA4 events and UTM standards to connect visits to leads.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ===== PROCESS ===== -->
+    <!-- PROCESS -->
     <section id="process" class="section">
       <div class="container">
-        <h2>How we work (simple and accountable)</h2>
-        <ol class="numbered">
-          <li><strong>Discover (Days 0–14):</strong> Quick audit, goals, site map. Messaging workshop to nail offers, objections, and proof points. Wireframes for key pages.</li>
-          <li><strong>Build (Days 15–45):</strong> Responsive templates, clean code, content production (copy, photos, FAQs), and integrations (forms, booking, maps).</li>
-          <li><strong>Launch & Improve (Days 46–90):</strong> QA, performance, accessibility, SEO checks. GA4 / UTM tracking, then iterate based on real user data.</li>
-        </ol>
-        <p class="mini">Prefer phased delivery? We’ll ship in weekly slices so you see progress every step.</p>
-      </div>
-    </section>
-
-    <!-- ===== INDUSTRIES / WHO WE SERVE ===== -->
-    <section id="industries" class="section">
-      <div class="container">
-        <h2>Who we serve</h2>
-        <p>We help local restaurants, home services, and neighborhood shops build a clean online presence that actually drives calls and visits.</p>
-        <div class="card-grid">
-          <article class="card"><h3>Restaurants & Cafés</h3><p>Clear menus, hours, and order buttons. Social posts that match what’s on the menu this week.</p></article>
-          <article class="card"><h3>Home & Field Services</h3><p>Fast contact options, service area clarity, and reviews that build trust quickly.</p></article>
-          <article class="card"><h3>Local Shops</h3><p>Simple product highlights, directions, and social content that keeps regulars coming back.</p></article>
+        <div class="surface">
+          <h2>How we work (simple and accountable)</h2>
+          <ol class="numbered">
+            <li><strong>Discover (Days 0–14):</strong> Quick audit, goals, site map. Messaging workshop to nail offers, objections, and proof points. Wireframes for key pages.</li>
+            <li><strong>Build (Days 15–45):</strong> Responsive templates, clean code, content production (copy, photos, FAQs), and integrations (forms, booking, maps).</li>
+            <li><strong>Launch & Improve (Days 46–90):</strong> QA, performance, accessibility, SEO checks. GA4 / UTM tracking, then iterate based on real user data.</li>
+          </ol>
+          <p class="mini">Prefer phased delivery? We’ll ship in weekly slices so you see progress every step.</p>
         </div>
       </div>
     </section>
 
-    <!-- ===== LOCAL CONTEXT / LOCATIONS ===== -->
+    <!-- LOCATIONS -->
     <section id="locations" class="section">
       <div class="container">
         <h2>Local service areas — South Metro</h2>
-        <p>We work where your customers are. City paragraphs and landmark context help you rank for real “near me” searches while keeping content human and helpful.</p>
         <div class="card-grid">
-          <article class="card"><h3>Apple Valley, MN</h3><p>We tune your Google Business Profile and align your key pages to common searches around Cedar Ave and County Rd 42. Clear calls to action turn views into visits.</p></article>
-          <article class="card"><h3>Eagan, MN</h3><p>Higher competition near major routes. Consistent posts, review flow, and tight on‑page relevance keep you visible without ad waste.</p></article>
-          <article class="card"><h3>Burnsville, MN</h3><p>Landmark and neighborhood context helps you show up around the mall and County Rd hubs. Internal links guide both people and bots.</p></article>
-          <article class="card"><h3>Rosemount, MN</h3><p>Smaller market means fast wins with correct listings and active updates. Fresh photos and FAQs reinforce relevance.</p></article>
+          <article class="card surface"><h3>Apple Valley, MN</h3><p>We tune your Google Business Profile and align key pages to common searches around Cedar Ave and County Rd 42. Clear calls to action turn views into visits.</p></article>
+          <article class="card surface"><h3>Eagan, MN</h3><p>Higher competition near major routes. Consistent posts, review flow, and tight on-page relevance keep you visible without ad waste.</p></article>
+          <article class="card surface"><h3>Burnsville, MN</h3><p>Landmark and neighborhood context helps you show up around the mall and County Rd hubs. Internal links guide both people and bots.</p></article>
+          <article class="card surface"><h3>Rosemount, MN</h3><p>Smaller market means fast wins with correct listings and active updates. Fresh photos and FAQs reinforce relevance.</p></article>
         </div>
         <p><a class="text-link" href="locations.html">See how we structure location content →</a></p>
       </div>
     </section>
 
-    <!-- ===== FAQS ===== -->
+    <!-- FAQ -->
     <section id="faqs" class="section">
       <div class="container">
         <h2>Frequently asked questions</h2>
         <section class="faq">
-          <details>
-            <summary>How fast can we see results?</summary>
-            <p>Local SEO improvements usually show within 2–4 weeks after core fixes (profile, content, citations). Competitive terms and larger markets take longer. We focus on steady gains that turn into calls and bookings.</p>
-          </details>
-          <details>
-            <summary>Do we need a page for every city?</summary>
-            <p>Not always. A strong Locations page plus service pages is often enough. We add city pages only when competition calls for it, and we write them like real people would—useful, not stuffed.</p>
-          </details>
-          <details>
-            <summary>Will the site be fast?</summary>
-            <p>Yes. We optimize images, trim scripts, and keep layouts lightweight. Our goal is “Good” Core Web Vitals on real devices, not just a lab score.</p>
-          </details>
-          <details>
-            <summary>Can we edit the site ourselves?</summary>
-            <p>Absolutely. We keep the stack simple and provide a quick editing guide. If you don’t want to touch updates, we can handle those too.</p>
-          </details>
-          <details>
-            <summary>How do we measure success?</summary>
-            <p>Calls, direction requests, forms, and booked jobs—tracked with GA4 events and UTM standards. Rankings are a leading indicator; conversions are the goal.</p>
-          </details>
+          <details><summary>How fast can we see results?</summary><p>Local SEO improvements usually show within 2–4 weeks after core fixes (profile, content, citations). Competitive terms and larger markets take longer. We focus on steady gains that turn into calls and bookings.</p></details>
+          <details><summary>Do we need a page for every city?</summary><p>Not always. A strong Locations page plus service pages is often enough. We add city pages only when competition calls for it, and we write them like real people would—useful, not stuffed.</p></details>
+          <details><summary>Will the site be fast?</summary><p>Yes. We optimize images, trim scripts, and keep layouts lightweight. Our goal is “Good” Core Web Vitals on real devices, not just a lab score.</p></details>
+          <details><summary>Can we edit the site ourselves?</summary><p>Absolutely. We keep the stack simple and provide a quick editing guide. If you don’t want to touch updates, we can handle those too.</p></details>
+          <details><summary>How do we measure success?</summary><p>Calls, direction requests, forms, and booked jobs—tracked with GA4 events and UTM standards. Rankings are a leading indicator; conversions are the goal.</p></details>
         </section>
       </div>
     </section>
 
-    <!-- ===== CTA BANNER ===== -->
+    <!-- CTA -->
     <section class="cta-banner">
       <div class="container banner-row">
         <div>
           <h3>Ready to turn visits into revenue?</h3>
-          <p>Tell us your goals and we’ll map a practical 90‑day plan. We’ll bring the wireframes and the numbers—so you can see exactly what we’ll build and how it pays off.</p>
+          <p>Tell us your goals and we’ll map a practical 90-day plan. We’ll bring the wireframes and the numbers—so you can see exactly what we’ll build and how it pays off.</p>
         </div>
         <a class="btn btn-primary" href="contact.html">Request a Free Audit</a>
       </div>
     </section>
-
   </main>
 
-  <footer>
-    <!-- Shared footer include -->
-    <div data-include="partials/footer.html"></div>
-  </footer>
+  <!-- Shared footer include -->
+  <footer><div data-include="partials/footer.html"></div></footer>
 
-  <!-- Rotating keywords (smooth, no layout jump) -->
+  <!-- Rotating keywords -->
   <script>
     (function(){
-      const el = document.querySelector('.kw-rotate');
-      if(!el) return;
-      const words = JSON.parse(el.getAttribute('data-words')||'[]');
-      if(!words.length) return;
+      const el = document.querySelector('.kw-rotate'); if(!el) return;
+      const words = JSON.parse(el.getAttribute('data-words')||'[]'); if(!words.length) return;
       let i = 0;
-      function swap(){
+      setInterval(function(){
         el.classList.add('is-fading');
-        setTimeout(()=>{
+        setTimeout(function(){
           i = (i+1)%words.length;
           el.textContent = words[i];
           el.classList.remove('is-fading');
         }, 220);
-      }
-      setInterval(swap, 1800);
+      }, 1800);
     })();
   </script>
 
-  <!-- FAQ JSON-LD (matches questions above) -->
+  <!-- FAQ JSON-LD -->
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"How fast can we see results?","acceptedAnswer":{"@type":"Answer","text":"Local SEO improvements usually show within 2–4 weeks after core fixes (profile, content, citations). Competitive terms and larger markets take longer. We focus on steady gains that turn into calls and bookings."}},
-      {"@type":"Question","name":"Do we need a page for every city?","acceptedAnswer":{"@type":"Answer","text":"Not always. A strong Locations page plus service pages is often enough. We add city pages only when competition calls for it, and we write them like real people would—useful, not stuffed."}},
-      {"@type":"Question","name":"Will the site be fast?","acceptedAnswer":{"@type":"Answer","text":"Yes. We optimize images, trim scripts, and keep layouts lightweight. Our goal is “Good” Core Web Vitals on real devices, not just a lab score."}},
-      {"@type":"Question","name":"Can we edit the site ourselves?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We keep the stack simple and provide a quick editing guide. If you don’t want to touch updates, we can handle those too."}},
-      {"@type":"Question","name":"How do we measure success?","acceptedAnswer":{"@type":"Answer","text":"Calls, direction requests, forms, and booked jobs—tracked with GA4 events and UTM standards. Rankings are a leading indicator; conversions are the goal."}}
-    ]
-  }
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How fast can we see results?","acceptedAnswer":{"@type":"Answer","text":"Local SEO improvements usually show within 2–4 weeks after core fixes (profile, content, citations). Competitive terms and larger markets take longer. We focus on steady gains that turn into calls and bookings."}},
+    {"@type":"Question","name":"Do we need a page for every city?","acceptedAnswer":{"@type":"Answer","text":"Not always. A strong Locations page plus service pages is often enough. We add city pages only when competition calls for it, and we write them like real people would—useful, not stuffed."}},
+    {"@type":"Question","name":"Will the site be fast?","acceptedAnswer":{"@type":"Answer","text":"Yes. We optimize images, trim scripts, and keep layouts lightweight. Our goal is “Good” Core Web Vitals on real devices, not just a lab score."}},
+    {"@type":"Question","name":"Can we edit the site ourselves?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We keep the stack simple and provide a quick editing guide. If you don’t want to touch updates, we can handle those too."}},
+    {"@type":"Question","name":"How do we measure success?","acceptedAnswer":{"@type":"Answer","text":"Calls, direction requests, forms, and booked jobs—tracked with GA4 events and UTM standards. Rankings are a leading indicator; conversions are the goal."}}
+  ]}
   </script>
 
-  <!-- Nav + include loader (preserve your current behavior) -->
+  <!-- Include loader + nav -->
   <script defer src="assets/js/nav-2025.js"></script>
   <script>
     (function () {
       const nodes=document.querySelectorAll("[data-include]");
       nodes.forEach(async (el)=>{
         try{
-          const path=el.getAttribute("data-include");
-          const res=await fetch(path,{cache:"no-cache"});
+          const res=await fetch(el.getAttribute("data-include"),{cache:"no-cache"});
           el.outerHTML=await res.text();
           if(window.navInit) window.navInit();
         }catch(e){ console.error("Include failed:", e); }
       });
-    })();
-  </script>
-
-  <!-- Optional: keep footer at bottom even on short pages -->
-  <script>
-    (function stickBottom(){
-      document.documentElement.style.minHeight = '100%';
-      document.body.style.minHeight = '100vh';
-      document.body.style.display = 'flex';
-      document.body.style.flexDirection = 'column';
-      const last = document.body.lastElementChild;
-      if (last) last.style.marginTop = 'auto';
     })();
   </script>
 </body>
