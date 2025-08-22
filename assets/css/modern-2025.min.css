@@ -219,3 +219,11 @@
   z-index: 0 !important;
   display: block;
 }
+/* Hide browser default disclosure triangle */
+details summary {
+  list-style: none; /* Firefox */
+}
+details summary::-webkit-details-marker {
+  display: none; /* Chrome, Safari */
+}
+
