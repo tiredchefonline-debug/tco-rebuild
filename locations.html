@@ -1,79 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Structured data (FAQ + Breadcrumbs) -->
+  <!-- Primary SEO -->
+  <title>Locations We Serve | Apple Valley, Eagan, Burnsville, Rosemount</title>
+  <meta name="description" content="We serve Apple Valley, Eagan, Burnsville, and Rosemount with Local SEO, web design, and social media that improve visibility and conversions.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#0d0b16">
+  <link rel="canonical" href="https://tiredchefonline.com/locations.html">
+
+  <!-- Social/OG -->
+  <meta property="og:site_name" content="TiredChefOnline">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Service Areas — Apple Valley, Eagan, Burnsville, Rosemount | TiredChefOnline">
+  <meta property="og:description" content="We serve Apple Valley, Eagan, Burnsville, and Rosemount with Local SEO, web design, and social media that improve visibility and conversions.">
+  <meta property="og:url" content="https://tiredchefonline.com/locations.html">
+  <meta property="og:image" content="https://tiredchefonline.com/assets/brand/chef.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Service Areas | TiredChefOnline">
+  <meta name="twitter:description" content="We serve Apple Valley, Eagan, Burnsville, and Rosemount with Local SEO, web design, and social media that improve visibility and conversions.">
+  <meta name="twitter:image" content="https://tiredchefonline.com/assets/brand/chef.png">
+
+  <!-- Perf preconnects (safe) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <!-- CSS (your bundles) -->
+  <link rel="stylesheet" href="assets/styles.min.css">
+  <link rel="stylesheet" href="assets/css/modern-2025.min.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/brand/apple-touch-icon.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="assets/brand/chef-32x32.png">
+  <link rel="icon" sizes="16x16" type="image/png" href="assets/brand/favicon-16.png">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- JSON-LD: FAQ + Breadcrumbs -->
   <script type="application/ld+json">{
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
+    "@context":"https://schema.org","@type":"FAQPage",
     "mainEntity":[
       {"@type":"Question","name":"What is Local SEO?","acceptedAnswer":{"@type":"Answer","text":"Local SEO helps your business show up in Google and Maps for nearby searches."}},
       {"@type":"Question","name":"How long until results?","acceptedAnswer":{"@type":"Answer","text":"Expect early improvements in weeks, with stronger gains in 3–6 months."}}
     ]
   }</script>
   <script type="application/ld+json">{
-    "@context":"https://schema.org",
-    "@type":"BreadcrumbList",
+    "@context":"https://schema.org","@type":"BreadcrumbList",
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Home","item":"https://tiredchefonline.com/index.html"},
       {"@type":"ListItem","position":2,"name":"Locations","item":"https://tiredchefonline.com/locations.html"}
     ]
   }</script>
 
-  <!-- Social/OG -->
-  <meta name="twitter:image" content="https://tiredchefonline.com/assets/brand/chef.png"/>
-  <meta name="twitter:title" content="Service Areas | TiredChefOnline"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta property="og:site_name" content="TiredChefOnline"/>
-  <meta property="og:image" content="https://tiredchefonline.com/assets/brand/chef.png"/>
+  <!-- JSON-LD: LocalBusiness + Service -->
+  <script type="application/ld+json">{
+    "@context":"https://schema.org","@type":"LocalBusiness",
+    "name":"TiredChefOnline",
+    "url":"https://tiredchefonline.com",
+    "image":"https://tiredchefonline.com/assets/brand/chef.png",
+    "areaServed":{"@type":"City","name":"Apple Valley","addressRegion":"MN","addressCountry":"US"},
+    "serviceArea":{"@type":"Place","name":"Apple Valley, MN"}
+  }</script>
+  <script type="application/ld+json">{
+    "@context":"https://schema.org","@type":"Service",
+    "name":"Local SEO — South Metro",
+    "provider":{"@type":"LocalBusiness","name":"TiredChefOnline"},
+    "areaServed":[
+      {"@type":"City","name":"Apple Valley, MN"},
+      {"@type":"City","name":"Eagan, MN"},
+      {"@type":"City","name":"Burnsville, MN"},
+      {"@type":"City","name":"Rosemount, MN"}
+    ]
+  }</script>
 
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-  <title>Locations We Serve | Apple Valley, Eagan, Burnsville, Rosemount</title>
-  <meta name="description" content="We serve Apple Valley, Eagan, Burnsville, and Rosemount with Local SEO, web design, and social media that improve visibility and conversions."/>
-
-  <!-- CSS (minified) -->
-  <link rel="stylesheet" href="assets/styles.min.css"/>
-  <link rel="stylesheet" href="assets/css/modern-2025.min.css"/>
-
+  <!-- Page-scoped styles (kept; tiny add: anchor offset) -->
   <style>
     .kw-rotate{color:#ff7a1a;font-weight:900;white-space:nowrap}
-    /* Ensure CTA buttons match theme and are visible */
     .btn{display:inline-block;padding:10px 14px;border:1px solid #2a2d52;border-radius:12px;background:#171c3a;color:#fff;text-decoration:none;cursor:pointer;transition:background .15s ease,border-color .15s ease,transform .08s ease}
     .btn:hover{background:#1e254e;border-color:#3a48a0;transform:translateY(-1px)}
     .btn.ghost{background:transparent;border-color:#6aa6ff;color:#cfe6ff}
     .btn.ghost:hover{background:rgba(106,166,255,.12);border-color:#8ab4ff}
     body{padding-bottom:60px}
+    .section{scroll-margin-top:96px}
+    .map-frame{position:relative;width:100%;min-height:260px}
+    .map-frame iframe{position:relative;display:block;width:100%;height:320px;border:0;border-radius:12px}
+    .visually-hidden{position:absolute!important;clip:rect(1px,1px,1px,1px);clip-path:inset(50%);height:1px;width:1px;overflow:hidden;white-space:nowrap}
+    /* prefers-reduced-motion friendly defaults already in your global CSS */
   </style>
-
-  <!-- Canonical + OG -->
-  <link rel="canonical" href="https://tiredchefonline.com/locations.html"/>
-  <meta property="og:title" content="Service Areas — Apple Valley, Eagan, Burnsville, Rosemount | TiredChefOnline"/>
-  <meta property="og:description" content="We serve Apple Valley, Eagan, Burnsville, and Rosemount with Local SEO, web design, and social media that improve visibility and conversions."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://tiredchefonline.com/locations.html"/>
-
-  <!-- Icons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/brand/apple-touch-icon.png"/>
-  <link rel="icon" sizes="32x32" type="image/png" href="assets/brand/chef-32x32.png"/>
-  <link rel="icon" sizes="16x16" type="image/png" href="assets/brand/favicon-16.png"/>
-  <link rel="shortcut icon" href="favicon.ico"/>
 
   <!-- Force HTTPS -->
   <script>(function(){try{if(location.protocol==="http:"){location.replace(location.href.replace("http:","https:"));}}catch(e){}})();</script>
-
-  <!-- Business entity (optional but nice to keep) -->
-  <script type="application/ld+json">{
-    "@context":"https://schema.org",
-    "@type":"LocalBusiness",
-    "name":"TiredChefOnline",
-    "url":"https://tiredchefonline.com",
-    "image":"https://tiredchefonline.com/assets/og-default.png",
-    "areaServed":{"@type":"City","name":"Apple Valley","addressRegion":"MN","addressCountry":"US"},
-    "serviceArea":{"@type":"Place","name":"Apple Valley, MN"}
-  }</script>
 </head>
 <body>
 
@@ -157,7 +175,10 @@
             </p>
           </div>
           <div class="map-frame">
-            <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Apple+Valley+MN&amp;output=embed"></iframe>
+            <iframe title="Map of Apple Valley, Minnesota"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps?q=Apple+Valley+MN&amp;output=embed"></iframe>
           </div>
         </div>
       </div>
@@ -182,7 +203,10 @@
             </p>
           </div>
           <div class="map-frame">
-            <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Eagan+MN&amp;output=embed"></iframe>
+            <iframe title="Map of Eagan, Minnesota"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps?q=Eagan+MN&amp;output=embed"></iframe>
           </div>
         </div>
       </div>
@@ -207,7 +231,10 @@
             </p>
           </div>
           <div class="map-frame">
-            <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Burnsville+MN&amp;output=embed"></iframe>
+            <iframe title="Map of Burnsville, Minnesota"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps?q=Burnsville+MN&amp;output=embed"></iframe>
           </div>
         </div>
       </div>
@@ -232,7 +259,10 @@
             </p>
           </div>
           <div class="map-frame">
-            <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Rosemount+MN&amp;output=embed"></iframe>
+            <iframe title="Map of Rosemount, Minnesota"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps?q=Rosemount+MN&amp;output=embed"></iframe>
           </div>
         </div>
       </div>
@@ -243,15 +273,15 @@
         <h2>Service Area FAQ</h2>
         <div class="faq">
           <details>
-            <summary><span>Do I need a page for each city?</span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <summary><span>Do I need a page for each city?</span><svg class="chev" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary>
             <div>Usually one Locations page plus strong service pages is enough. We add city pages only where it’s truly competitive.</div>
           </details>
           <details>
-            <summary><span>Will this help my Google Maps ranking?</span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <summary><span>Will this help my Google Maps ranking?</span><svg class="chev" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary>
             <div>Yes—GBP optimization + on-site signals + citations is the core of Maps visibility.</div>
           </details>
           <details>
-            <summary><span>How soon do results show up?</span><svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <summary><span>How soon do results show up?</span><svg class="chev" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></summary>
             <div>Most see movement in 2–4 weeks and compounding gains over a few months.</div>
           </details>
         </div>
@@ -271,37 +301,14 @@
         </div>
       </div>
     </section>
-
-    <!-- Service schema for area coverage -->
-    <script type="application/ld+json">{
-      "@context":"https://schema.org",
-      "@type":"Service",
-      "name":"Local SEO — South Metro",
-      "provider":{"@type":"LocalBusiness","name":"TiredChefOnline"},
-      "areaServed":[
-        {"@type":"City","name":"Apple Valley, MN"},
-        {"@type":"City","name":"Eagan, MN"},
-        {"@type":"City","name":"Burnsville, MN"},
-        {"@type":"City","name":"Rosemount, MN"}
-      ]
-    }</script>
   </main>
 
   <!-- Shared footer include -->
   <div data-include="partials/footer.html"></div>
 
-  <!-- Optional rotating keyword text (safe no-op if element absent) -->
-  <script>
-    (function(){
-      const words=["Create Website","Digital Presence","Online Marketing","Web Design","SEO Services","Social Media Setup"];
-      const el=document.querySelector(".kw-rotate"); if(!el) return;
-      let i=0; setInterval(()=>{ i=(i+1)%words.length; el.textContent=words[i]; },1800);
-    })();
-  </script>
-
   <!-- Scripts -->
-  <script src="assets/script.min.js" defer></script>
-  <script src="assets/js/nav-2025.js" defer></script>
+  <script defer src="assets/script.min.js"></script>
+  <script defer src="assets/js/nav-2025.js"></script>
 
   <!-- Include loader (renders header/footer partials, then re-inits nav) -->
   <script>
@@ -317,7 +324,7 @@
     })();
   </script>
 
-  <!-- Nudge helper for offscreen fixed elements -->
+  <!-- Nudge helper for offscreen fixed elements (kept) -->
   <script>
     (function(){
       function nudgeFixedRight(){

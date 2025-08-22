@@ -1,141 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
-  <!-- Structured data -->
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Sitemap | TiredChefOnline</title>
+  <meta name="description" content="Explore all pages on TiredChefOnline, including services, locations, contact, and resources. Use this sitemap to quickly find what you need and help search engines crawl the site.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#0d0b16">
+  <link rel="canonical" href="https://tiredchefonline.com/sitemap.html">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:site_name" content="TiredChefOnline">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sitemap | TiredChefOnline">
+  <meta property="og:description" content="Explore all pages on TiredChefOnline, including services, locations, contact, and resources.">
+  <meta property="og:url" content="https://tiredchefonline.com/sitemap.html">
+  <meta property="og:image" content="https://tiredchefonline.com/assets/brand/chef.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sitemap | TiredChefOnline">
+  <meta name="twitter:description" content="Explore all pages on TiredChefOnline, including services, locations, contact, and resources.">
+  <meta name="twitter:image" content="https://tiredchefonline.com/assets/brand/chef.png">
+
+  <!-- JSON-LD -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tiredchefonline.com/index.html"},{"@type":"ListItem","position":2,"name":"Sitemap","item":"https://tiredchefonline.com/sitemap.html"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TiredChefOnline","url":"https://tiredchefonline.com","logo":"https://tiredchefonline.com/assets/brand/chef.png"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"TiredChefOnline","url":"https://tiredchefonline.com","potentialAction":{"@type":"SearchAction","target":"https://tiredchefonline.com/sitemap.html?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
 
-  <!-- Social/OG -->
-  <meta name="twitter:image" content="https://tiredchefonline.com/assets/brand/chef.png"/>
-  <meta name="twitter:title" content="Sitemap | TiredChefOnline"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta property="og:site_name" content="TiredChefOnline"/>
-  <meta property="og:image" content="https://tiredchefonline.com/assets/brand/chef.png"/>
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/styles.min.css">
+  <link rel="stylesheet" href="assets/css/modern-2025.min.css">
 
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-  <title>Sitemap | TiredChefOnline</title>
-  <meta name="description" content="Explore all pages on TiredChefOnline, including services, locations, contact, and resources. Use this sitemap to quickly find what you need and help search engines crawl the site."/>
-
-  <!-- CSS (site) -->
-  <link rel="stylesheet" href="assets/styles.min.css"/>
-  <link rel="stylesheet" href="assets/css/modern-2025.min.css"/>
-
-  <!-- Page-scoped styles -->
+  <!-- Page-scoped styles (kept, plus tiny a11y util + anchor offset) -->
   <style>
     :root{
-      /* pull from your palette / provide safe fallbacks */
-      --tco-bg:        #0f1222;
-      --tco-panel:     rgba(255,255,255,.02);
-      --tco-border:    rgba(148,163,184,.18);  /* slate/blue hairline */
-      --tco-border-2:  rgba(148,163,184,.28);
-      --tco-ink:       #dbe8ff;
-      --tco-muted:     #8a8fa3;
-      --tco-link:      #6aa6ff;
-      --tco-accent:    #39dac6;
-      --radius-xl:     16px;
-      --radius-lg:     12px;
+      --tco-bg:#0f1222; --tco-panel:rgba(255,255,255,.02);
+      --tco-border:rgba(148,163,184,.18); --tco-border-2:rgba(148,163,184,.28);
+      --tco-ink:#dbe8ff; --tco-muted:#8a8fa3; --tco-link:#6aa6ff; --tco-accent:#39dac6;
+      --radius-xl:16px; --radius-lg:12px;
     }
+    .visually-hidden{position:absolute!important;clip:rect(1px,1px,1px,1px);clip-path:inset(50%);height:1px;width:1px;overflow:hidden;white-space:nowrap}
+    .section{scroll-margin-top:96px}
 
-    body{ padding-bottom:60px }
+    body{padding-bottom:60px}
+    .sitemap-shell{max-width:960px;margin:0 auto;padding:28px 0 64px}
 
-    .sitemap-shell{
-      max-width:960px; margin:0 auto; padding:28px 0 64px;
-    }
+    .sitemap-hero h1{font-size:clamp(2rem,2.6vw,2.6rem);line-height:1.1;letter-spacing:.2px}
+    .sitemap-hero p{color:var(--tco-muted)}
 
-    /* Hero */
-    .sitemap-hero h1{
-      font-size: clamp(2rem, 2.6vw, 2.6rem);
-      line-height:1.1; letter-spacing:.2px;
-    }
-    .sitemap-hero p{ color:var(--tco-muted) }
+    .cmd{margin:16px 0 22px;position:relative;border:1px solid var(--tco-border);
+      background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
+      border-radius:var(--radius-xl);display:flex;align-items:center;gap:10px;padding:10px 12px}
+    .cmd svg{width:18px;height:18px;opacity:.8}
+    .cmd input[type="search"]{flex:1;background:transparent;border:0;outline:0;color:var(--tco-ink);font-size:15px;padding:8px 4px}
+    .kbd{border:1px solid var(--tco-border-2);border-bottom-color:rgba(0,0,0,.2);padding:2px 6px;border-radius:8px;font-size:12px;color:var(--tco-muted);background:rgba(255,255,255,.04)}
+    .cmd .btn{margin-left:6px}
 
-    /* Command-palette style search */
-    .cmd{
-      margin:16px 0 22px; position:relative;
-      border:1px solid var(--tco-border);
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      border-radius: var(--radius-xl);
-      display:flex; align-items:center; gap:10px; padding:10px 12px;
-    }
-    .cmd svg{ width:18px; height:18px; opacity:.8 }
-    .cmd input[type="search"]{
-      flex:1; background:transparent; border:0; outline:0; color:var(--tco-ink);
-      font-size:15px; padding:8px 4px;
-    }
-    .kbd{ border:1px solid var(--tco-border-2); border-bottom-color:rgba(0,0,0,.2);
-      padding:2px 6px; border-radius:8px; font-size:12px; color:var(--tco-muted); background:rgba(255,255,255,.04) }
-    .cmd .btn{ margin-left:6px }
+    .sitemap-grid{display:grid;gap:16px;grid-template-columns:repeat(12,1fr)}
+    .group-card{grid-column:span 12;border:1px solid var(--tco-border);background:var(--tco-panel);
+      border-radius:var(--radius-lg);padding:14px 14px 10px;transition:transform .12s ease,border-color .12s ease,background .12s ease}
+    .group-card:hover{transform:translateY(-2px);border-color:var(--tco-border-2)}
+    .group-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+    .group-head h3{margin:0;font-size:14px;color:var(--tco-muted);letter-spacing:.5px;text-transform:uppercase}
+    .count{font-size:12px;color:var(--tco-muted)}
 
-    /* Grid of groups */
-    .sitemap-grid{
-      display:grid; gap:16px;
-      grid-template-columns: repeat(12, 1fr);
-    }
-    .group-card{
-      grid-column: span 12;
-      border:1px solid var(--tco-border);
-      background: var(--tco-panel);
-      border-radius: var(--radius-lg);
-      padding:14px 14px 10px;
-      transition: transform .12s ease, border-color .12s ease, background .12s ease;
-    }
-    .group-card:hover{ transform: translateY(-2px); border-color: var(--tco-border-2) }
-    .group-head{
-      display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;
-    }
-    .group-head h3{ margin:0; font-size:14px; color:var(--tco-muted); letter-spacing:.5px; text-transform:uppercase }
-    .count{ font-size:12px; color:var(--tco-muted) }
+    .linkgrid{--col:2;display:grid;gap:8px;grid-template-columns:repeat(var(--col),minmax(0,1fr))}
+    @media (max-width:720px){.linkgrid{--col:1}}
 
-    .linkgrid{
-      --col: 2; 
-      display:grid; gap:8px; grid-template-columns: repeat(var(--col), minmax(0,1fr));
-    }
-    @media (max-width: 720px){ .linkgrid{ --col:1 } }
+    .linkcard{display:flex;align-items:center;gap:10px;border:1px solid transparent;padding:10px 12px;border-radius:12px;
+      text-decoration:none;color:var(--tco-ink);background:rgba(255,255,255,.02);transition:border-color .12s ease,background .12s ease,transform .08s ease}
+    .linkcard:hover{border-color:var(--tco-border-2);background:rgba(255,255,255,.03);transform:translateY(-1px)}
+    .linkcard:focus-visible{outline:2px solid var(--tco-link);outline-offset:2px}
+    .linkcard .icon{width:18px;height:18px;opacity:.85}
+    .linkcard small{color:var(--tco-muted)}
+    mark{background:color-mix(in srgb, var(--tco-link) 22%, transparent);color:inherit;padding:0 .1em;border-radius:4px}
+    a{color:var(--tco-link)}
 
-    .linkcard{
-      display:flex; align-items:center; gap:10px;
-      border:1px solid transparent;
-      padding:10px 12px; border-radius:12px;
-      text-decoration:none; color:var(--tco-ink);
-      background: rgba(255,255,255,.02);
-      transition: border-color .12s ease, background .12s ease, transform .08s ease;
-    }
-    .linkcard:hover{ border-color: var(--tco-border-2); background: rgba(255,255,255,.03); transform: translateY(-1px) }
-    .linkcard:focus-visible{ outline:2px solid var(--tco-link); outline-offset:2px } /* visible focus ring (WCAG) */
-    .linkcard .icon{ width:18px; height:18px; opacity:.85 }
-    .linkcard small{ color:var(--tco-muted) }
-
-    /* Highlight term */
-    mark{
-      background: color-mix(in srgb, var(--tco-link) 22%, transparent);
-      color: inherit; padding:0 .1em; border-radius:4px;
-    }
-
-    /* link color harmony */
-    a{ color: var(--tco-link) }
-
-    /* reduce motion friendly */
-    @media (prefers-reduced-motion: reduce){
-      .group-card, .linkcard{ transition: none !important; }
+    @media (prefers-reduced-motion:reduce){
+      .group-card,.linkcard{transition:none!important}
     }
   </style>
 
-  <!-- Canonical/OG -->
-  <link rel="canonical" href="https://tiredchefonline.com/sitemap.html"/>
-  <meta property="og:title" content="Sitemap | TiredChefOnline"/>
-  <meta property="og:description" content="Explore all pages on TiredChefOnline, including services, locations, contact, and resources."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://tiredchefonline.com/sitemap.html"/>
-
   <!-- Icons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/brand/apple-touch-icon.png"/>
-  <link rel="icon" sizes="32x32" type="image/png" href="assets/brand/chef-32x32.png"/>
-  <link rel="icon" sizes="16x16" type="image/png" href="assets/brand/favicon-16.png"/>
-  <link rel="shortcut icon" href="favicon.ico"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/brand/apple-touch-icon.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="assets/brand/chef-32x32.png">
+  <link rel="icon" sizes="16x16" type="image/png" href="assets/brand/favicon-16.png">
+  <link rel="shortcut icon" href="favicon.ico">
 
   <!-- Force HTTPS -->
   <script>(function(){try{if(location.protocol==="http:"){location.replace(location.href.replace("http:","https:"));}}catch(e){}})();</script>
@@ -145,7 +96,7 @@
   <!-- Shared header include -->
   <div data-include="partials/header.html"></div>
 
-  <main id="content">
+  <main id="content" role="main">
     <section class="section">
       <div class="container sitemap-shell">
         <div class="sitemap-hero">
@@ -154,10 +105,10 @@
         </div>
 
         <!-- Command-palette search -->
-        <form class="cmd" action="sitemap.html" method="GET" role="search">
+        <form class="cmd" action="sitemap.html" method="GET" role="search" aria-label="Filter pages">
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.2-4.2M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           <label for="q" class="visually-hidden">Filter pages</label>
-          <input id="q" name="q" type="search" placeholder="Type to filter (e.g., seo, web, apple valley)" autocomplete="off"/>
+          <input id="q" name="q" type="search" placeholder="Type to filter (e.g., seo, web, apple valley)" autocomplete="off" />
           <button class="btn small" type="submit">Search</button>
           <span class="kbd" aria-hidden="true">/</span>
         </form>
@@ -165,24 +116,52 @@
         <!-- Cards -->
         <div class="sitemap-grid" id="sitemapGrid">
           <!-- MAIN -->
-          <section class="group-card" data-group="Main">
-            <div class="group-head"><h3>Main</h3><span class="count" data-count></span></div>
+          <section class="group-card" data-group="Main" aria-labelledby="group-main">
+            <div class="group-head">
+              <h3 id="group-main">Main</h3><span class="count" data-count></span>
+            </div>
             <div class="linkgrid">
-              <a class="linkcard" href="index.html" data-keywords="home main"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Home</a>
-              <a class="linkcard" href="locations.html" data-keywords="cities areas"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Locations</a>
-              <a class="linkcard" href="contact.html" data-keywords="email phone book call"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2h-1c-7 0-13-6-13-13V3a2 2 0 0 1 2-2h4l2 5-3 2a11 11 0 0 0 6 6l2-3 5 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Contact</a>
-              <a class="linkcard" href="privacy.html" data-keywords="policy gdpr"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3Z" stroke="currentColor" stroke-width="2"/></svg>Privacy Policy</a>
-              <a class="linkcard" href="sitemap.html" aria-current="page" data-keywords="map index"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2V6Z" stroke="currentColor" stroke-width="2"/></svg>Sitemap</a>
+              <a class="linkcard" href="index.html" data-keywords="home main">
+                <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                <span class="label" data-original="Home">Home</span>
+              </a>
+              <a class="linkcard" href="locations.html" data-keywords="cities areas">
+                <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                <span class="label" data-original="Locations">Locations</span>
+              </a>
+              <a class="linkcard" href="contact.html" data-keywords="email phone book call">
+                <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2h-1c-7 0-13-6-13-13V3a2 2 0 0 1 2-2h4l2 5-3 2a11 11 0 0 0 6 6l2-3 5 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                <span class="label" data-original="Contact">Contact</span>
+              </a>
+              <a class="linkcard" href="privacy.html" data-keywords="policy gdpr">
+                <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3Z" stroke="currentColor" stroke-width="2"/></svg>
+                <span class="label" data-original="Privacy Policy">Privacy Policy</span>
+              </a>
+              <a class="linkcard" href="sitemap.html" aria-current="page" data-keywords="map index">
+                <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2V6Z" stroke="currentColor" stroke-width="2"/></svg>
+                <span class="label" data-original="Sitemap">Sitemap</span>
+              </a>
             </div>
           </section>
 
           <!-- SERVICES -->
-          <section class="group-card" data-group="Services">
-            <div class="group-head"><h3>Services</h3><span class="count" data-count></span></div>
+          <section class="group-card" data-group="Services" aria-labelledby="group-services">
+            <div class="group-head">
+              <h3 id="group-services">Services</h3><span class="count" data-count></span>
+            </div>
             <div class="linkgrid">
-              <a class="linkcard" href="services/local-seo.html" data-keywords="maps google near me gmb gbp"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="2"/></svg>Local SEO</a>
-              <a class="linkcard" href="services/social-media.html" data-keywords="instagram tiktok reels"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M8 8h8v8H8V8Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg>Social Media Marketing</a>
-              <a class="linkcard" href="services/web-design.html" data-keywords="website pages speed core web vitals"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4zM4 10h16M8 14h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Website Design</a>
+              <a class="linkcard" href="services/local-seo.html" data-keywords="maps google near me gmb gbp">
+                <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z" stroke="currentColor" stroke-width="2"/></svg>
+                <span class="label" data-original="Local SEO">Local SEO</span>
+              </a>
+              <a class="linkcard" href="services/social-media.html" data-keywords="instagram tiktok reels">
+                <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M8 8h8v8H8V8Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg>
+                <span class="label" data-original="Social Media Marketing">Social Media Marketing</span>
+              </a>
+              <a class="linkcard" href="services/web-design.html" data-keywords="website pages speed core web vitals">
+                <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4zM4 10h16M8 14h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                <span class="label" data-original="Website Design">Website Design</span>
+              </a>
             </div>
           </section>
         </div>
@@ -193,11 +172,11 @@
   <!-- Shared footer include -->
   <div data-include="partials/footer.html"></div>
 
-  <!-- Site scripts -->
-  <script src="assets/script.min.js" defer></script>
-  <script src="assets/js/nav-2025.js" defer></script>
+  <!-- Site scripts (load once here; removed duplicates from <head>) -->
+  <script defer src="assets/script.min.js"></script>
+  <script defer src="assets/js/nav-2025.js"></script>
 
-  <!-- Include loader (renders header/footer partials, re-inits nav) -->
+  <!-- Include loader (single) -->
   <script>
     (function () {
       const nodes=document.querySelectorAll("[data-include]");
@@ -211,7 +190,7 @@
     })();
   </script>
 
-  <!-- Command-palette filter + extras -->
+  <!-- Command-palette filter (single, merged version) -->
   <script>
     (function(){
       const params = new URLSearchParams(location.search);
@@ -219,12 +198,10 @@
       const input = document.getElementById('q');
       const groups = [...document.querySelectorAll('.group-card')];
 
-      if(input) input.value = q;
-
-      function highlight(text, term){
-        if(!term) return text;
+      function highlightHTML(text, term){
+        if (!term) return text;
         const i = text.toLowerCase().indexOf(term.toLowerCase());
-        if(i === -1) return text;
+        if (i === -1) return text;
         return text.slice(0,i) + '<mark>' + text.slice(i, i+term.length) + '</mark>' + text.slice(i+term.length);
       }
 
@@ -233,39 +210,38 @@
         groups.forEach(card=>{
           const links = [...card.querySelectorAll('.linkcard')];
           let visible = 0;
+
           links.forEach(a=>{
-            const text = a.textContent.trim();
-            const keys = (a.dataset.keywords || '') + ' ' + text;
-            const isHit = !t || keys.toLowerCase().includes(t);
-            a.style.display = isHit ? '' : 'none';
-            // highlight label safely
-            a.innerHTML = a.innerHTML.replace(/<mark>|<\/mark>/g,''); // reset
-            const label = a.childNodes[a.childNodes.length-1]; // last text node
-            if(label && label.nodeType === 3){
-              const span = document.createElement('span');
-              span.innerHTML = highlight(label.nodeValue, t);
-              a.replaceChild(span, label);
-            }
-            if(isHit) visible++;
+            const labelEl = a.querySelector('.label');
+            const original = labelEl?.dataset.original || labelEl?.textContent || '';
+            const keys = ((a.dataset.keywords || '') + ' ' + original).toLowerCase();
+            const hit = !t || keys.includes(t);
+
+            a.style.display = hit ? '' : 'none';
+            if (labelEl) labelEl.innerHTML = highlightHTML(original, t);
+            if (hit) visible++;
           });
-          card.querySelector('[data-count]').textContent = visible + ' link' + (visible===1?'':'s');
+
+          const counter = card.querySelector('[data-count]');
+          if (counter) counter.textContent = visible + ' link' + (visible===1?'':'s');
           card.style.display = visible ? '' : 'none';
         });
       }
 
       // init
+      if (input) input.value = q;
       applyFilter(q);
 
       // live filter
       input && input.addEventListener('input', e=>applyFilter(e.target.value));
 
-      // keyboard shortcuts: / and Cmd/Ctrl+K
+      // keyboard shortcuts: / and Cmd/Ctrl+K + Escape
       window.addEventListener('keydown', (e)=>{
         if (e.key === '/' && document.activeElement !== input){
-          e.preventDefault(); input.focus(); input.select();
+          e.preventDefault(); input?.focus(); input?.select();
         }
         if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k'){
-          e.preventDefault(); input.focus(); input.select();
+          e.preventDefault(); input?.focus(); input?.select();
         }
         if (e.key === 'Escape' && input === document.activeElement){
           input.value=''; applyFilter('');
@@ -273,121 +249,5 @@
       });
     })();
   </script>
-
-  <!-- Reduced-motion nudge for any fixed elements (kept from your pattern) -->
-  <script>
-    (function(){
-      function nudgeFixedRight(){
-        try{
-          var nodes=document.querySelectorAll('body *');
-          var vw=window.innerWidth||document.documentElement.clientWidth;
-          nodes.forEach(function(el){
-            var cs=getComputedStyle(el);
-            if(cs.position!=='fixed') return;
-            var w=el.getBoundingClientRect();
-            var rightProp=parseFloat(cs.right);
-            var offscreen=(w.right>vw-2)||(rightProp<0)||(w.left>=vw-2);
-            if(offscreen){ el.classList.add('nudge-right'); el.setAttribute('data-nudged','1'); }
-          });
-        }catch(e){}
-      }
-      if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded', nudgeFixedRight);} else {nudgeFixedRight();}
-      window.addEventListener('resize', nudgeFixedRight);
-    })();
-  </script>
-
-<script>
-  (function(){
-    const params = new URLSearchParams(location.search);
-    const q = params.get('q') || '';
-    const input = document.getElementById('q');
-    const groups = [...document.querySelectorAll('.group-card')];
-  
-    if (input) input.value = q;
-  
-    // Wrap the label text once and store original text
-    function prepareLabels(){
-      document.querySelectorAll('.linkcard').forEach(a=>{
-        // if we already prepared, skip
-        if (a.querySelector('.label')) return;
-  
-        // find trailing text node (after the svg)
-        let last = a.lastChild;
-        // If last child is whitespace or not a text node, build label from textContent
-        let original = '';
-        if (last && last.nodeType === 3) {
-          original = last.nodeValue.trim();
-          a.removeChild(last);
-        } else {
-          original = (a.textContent || '').trim();
-          // remove everything except svg so we don't double up
-          const svg = a.querySelector('svg');
-          a.innerHTML = '';
-          if (svg) a.appendChild(svg);
-        }
-        const span = document.createElement('span');
-        span.className = 'label';
-        span.dataset.original = original;
-        span.textContent = original;
-        a.appendChild(span);
-      });
-    }
-  
-    function highlightHTML(text, term){
-      if (!term) return text;
-      const i = text.toLowerCase().indexOf(term.toLowerCase());
-      if (i === -1) return text;
-      return text.slice(0,i) + '<mark>' + text.slice(i, i+term.length) + '</mark>' + text.slice(i+term.length);
-    }
-  
-    function applyFilter(term){
-      const t = (term||'').trim().toLowerCase();
-      groups.forEach(card=>{
-        const links = [...card.querySelectorAll('.linkcard')];
-        let visible = 0;
-  
-        links.forEach(a=>{
-          const labelEl = a.querySelector('.label');
-          const base = (labelEl?.dataset.original || '').toLowerCase();
-          const keys = ((a.dataset.keywords || '') + ' ' + base).trim();
-          const hit = !t || keys.includes(t);
-  
-          a.style.display = hit ? '' : 'none';
-          if (labelEl) {
-            const original = labelEl.dataset.original || labelEl.textContent || '';
-            labelEl.innerHTML = highlightHTML(original, t);
-          }
-          if (hit) visible++;
-        });
-  
-        const counter = card.querySelector('[data-count]');
-        if (counter) counter.textContent = visible + ' link' + (visible===1?'':'s');
-        card.style.display = visible ? '' : 'none';
-      });
-    }
-  
-    // init
-    prepareLabels();
-    applyFilter(q);
-  
-    // live filter
-    input && input.addEventListener('input', e=>applyFilter(e.target.value));
-  
-    // keyboard shortcuts: / and Cmd/Ctrl+K
-    window.addEventListener('keydown', (e)=>{
-      if (e.key === '/' && document.activeElement !== input){
-        e.preventDefault(); input.focus(); input.select();
-      }
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k'){
-        e.preventDefault(); input.focus(); input.select();
-      }
-      if (e.key === 'Escape' && input === document.activeElement){
-        input.value=''; applyFilter('');
-      }
-    });
-  })();
-  </script>
-
-
 </body>
 </html>

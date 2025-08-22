@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script defer src="/assets/js/head-include.js"></script>
+
+  <title><!-- Page Title --> Local SEO | TiredChefOnline</title>
+  <meta name="description" content="<!-- One-sentence page description -->">
+  <link rel="canonical" href="https://tiredchefonline.com/services/local-seo.html">
+
+  <!-- Page-specific OG/Twitter (optional; overrides defaults loaded from head-core) -->
+  <meta property="og:title" content="Local SEO | TiredChefOnline">
+  <meta property="og:description" content="Local SEO services in Apple Valley, MN by TiredChefOnline.">
+  <meta property="og:url" content="https://tiredchefonline.com/services/local-seo.html">
+  <meta name="twitter:title" content="Local SEO | TiredChefOnline">
+  <meta name="twitter:description" content="Local SEO services in Apple Valley, MN by TiredChefOnline.">
+</head>
+<body>
+
+  <!-- Shared header (client-side include) -->
+  <div data-include="../partials/header.html"></div>
+
+  <main id="content">
+    <section class="section hero">
+      <div class="container">
+        <p class="kicker">Apple Valley • Eagan • Burnsville • Rosemount</p>
+        <h1><!-- H1 --> Local SEO</h1>
+        <p class="lead">Get found in Google Maps and local search, turn discovery into calls and booked jobs.</p>
+        <a class="btn btn-primary" href="../contact.html">Request a Free Proposal</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <!-- Your page content goes here (cards, checklists, FAQs, etc.) -->
+      </div>
+    </section>
+
+    <!-- Optional: page-scoped JSON-LD -->
+    <script type="application/ld+json">{
+      "@context":"https://schema.org",
+      "@type":"Service",
+      "name":"Local SEO",
+      "provider":{"@type":"LocalBusiness","name":"TiredChefOnline"},
+      "areaServed":["Apple Valley MN","Eagan MN","Burnsville MN","Rosemount MN"],
+      "serviceType":"Local search optimization",
+      "url":"https://tiredchefonline.com/services/local-seo.html"
+    }</script>
+  </main>
+
+  <!-- Shared footer -->
+  <div data-include="../partials/footer.html"></div>
+
+  <!-- Your site scripts (single pass) -->
+  <script defer src="../assets/script.min.js"></script>
+  <script defer src="../assets/js/nav-2025.js"></script>
+
+  <!-- Include loader for header/footer -->
+  <script>
+    (function () {
+      const nodes=document.querySelectorAll("[data-include]");
+      nodes.forEach(async (el)=>{
+        try{
+          const res=await fetch(el.getAttribute("data-include"),{cache:"no-cache"});
+          el.outerHTML=await res.text();
+          if(window.navInit) window.navInit();
+        }catch(e){ console.error("Include failed:", e); }
+      });
+    })();
+  </script>
+</body>
+</html>
