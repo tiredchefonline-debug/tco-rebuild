@@ -4,7 +4,6 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <base href="/tco-rebuild/">
   
     <title>Social Media Marketing | TiredChefOnline</title>
     <meta name="description" content="Social Media Marketing services in Apple Valley, MN by TiredChefOnline.">
@@ -46,6 +45,7 @@
     <!-- Force HTTPS -->
     <script>(function(){try{if(location.protocol==="http:"){location.replace(location.href.replace("http:","https:"));}}catch(e){}})();</script>
   </head>
+  
   
 <body>
 
@@ -96,25 +96,23 @@
     </script>
   </main>
 
-  <!-- Shared footer include -->
+  <div data-include="../partials/header.html"></div>
+  ...
   <div data-include="../partials/footer.html"></div>
-
+  
   <script defer src="../assets/script.min.js"></script>
   <script defer src="../assets/js/nav-2025.js"></script>
-  <script defer src="../assets/js/head-include.js"></script>
   
-  <!-- Include loader -->
   <script>
-    (function () {
-      const nodes=document.querySelectorAll("[data-include]");
-      nodes.forEach(async (el)=>{
-        try{
-          const res=await fetch(el.getAttribute("data-include"),{cache:"no-cache"});
-          el.outerHTML=await res.text();
-          if(window.navInit) window.navInit();
-        }catch(e){ console.error("Include failed:", e); }
-      });
-    })();
+  (function(){
+    const nodes=document.querySelectorAll("[data-include]");
+    nodes.forEach(async (el)=>{
+      try{
+        const res=await fetch(el.getAttribute("data-include"),{cache:"no-cache"});
+        el.outerHTML=await res.text();
+        if(window.navInit) window.navInit();
+      }catch(e){ console.error("Include failed:", e); }
+    });
+  })();
   </script>
-</body>
-</html>
+  
