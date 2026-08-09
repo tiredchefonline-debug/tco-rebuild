@@ -9,6 +9,10 @@ Static marketing site for TiredChefOnline, deployed from the repository root.
 
 The preview server has no package dependencies. Production deployment settings live in `netlify.toml`.
 
+## Asset caching
+
+CSS and JavaScript use versioned URLs and are configured in `netlify.toml` with `max-age=0, must-revalidate`. This prevents a new HTML deployment from being paired with stale interface styles or behavior. Keep those cache rules unless asset filenames are content-hashed automatically.
+
 ## Site structure
 
 - `index.html` — homepage
