@@ -87,9 +87,25 @@ for (const page of htmlFiles) {
   for (const image of html.matchAll(/<img\b[^>]*>/gi)) {
     if (!/\balt\s*=/i.test(image[0])) issues.push(`${relativePage}: image is missing alt text`);
   }
+
+  for (const asset of ["css/site.css", "js/site.js"]) {
+    const escapedAsset = asset.replace(".", "\\.");
+    const versionedAsset = new RegExp(`/assets/${escapedAsset}\\?v=[^\"'\\s>]+`, "i");
+    if (!versionedAsset.test(html)) issues.push(`${relativePage}: missing versioned reference for /assets/${asset}`);
+  }
 }
 
 JSON.parse(await readFile(join(root, "manifest.webmanifest"), "utf8"));
+
+const netlifyConfig = await readFile(join(root, "netlify.toml"), "utf8");
+const headerBlocks = netlifyConfig.split("[[headers]]");
+
+for (const assetPath of ["/assets/css/*", "/assets/js/*"]) {
+  const block = headerBlocks.find((candidate) => candidate.includes(`for = "${assetPath}"`));
+  if (!block || !/Cache-Control\s*=\s*"[^"]*max-age=0(?:,|")/i.test(block)) {
+    issues.push(`netlify.toml: ${assetPath} must revalidate with max-age=0`);
+  }
+}
 
 if (issues.length) {
   console.error(issues.join("\n"));
