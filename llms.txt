@@ -1,0 +1,23 @@
+# TiredChefOnline
+
+> TiredChefOnline provides practical web design, local SEO, and social media services for businesses in Apple Valley and Minnesota's South Metro.
+
+TiredChefOnline helps local businesses improve calls, bookings, visits, and qualified inquiries through clear websites and local marketing. The pages below are the canonical sources for the business, its services, service area, contact information, and policies.
+
+## Services
+
+- [Local SEO](https://tiredchefonline.com/services/local-seo.html): Google Business Profile improvements, local service and location content, listings, reviews, and measurement.
+- [Web Design](https://tiredchefonline.com/services/web-design.html): Mobile-first planning, copy, design, development, accessibility, and launch support.
+- [Social Media](https://tiredchefonline.com/services/social-media.html): Sustainable content strategy, planning, reusable formats, and reporting.
+
+## Company and contact
+
+- [Homepage](https://tiredchefonline.com/): Business overview, process, service areas, and frequently asked questions.
+- [Service areas](https://tiredchefonline.com/locations.html): Apple Valley, Eagan, Burnsville, Rosemount, and Minnesota's South Metro.
+- [Contact](https://tiredchefonline.com/contact.html): Send a marketing inquiry or request a free 30-minute conversation.
+
+## Reference
+
+- [HTML sitemap](https://tiredchefonline.com/sitemap.html): Human-readable list of public pages.
+- [XML sitemap](https://tiredchefonline.com/sitemap.xml): Search-engine sitemap containing canonical public URLs.
+- [Privacy policy](https://tiredchefonline.com/privacy.html): Information collection, providers, retention, and visitor choices.

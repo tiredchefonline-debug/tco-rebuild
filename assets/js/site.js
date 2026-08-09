@@ -84,6 +84,16 @@
     node.textContent = String(new Date().getFullYear());
   });
 
+  window.addEventListener("toolactivated", function (event) {
+    if (event.toolName !== "prepare_contact_inquiry") return;
+    const form = document.querySelector('form[toolname="prepare_contact_inquiry"]');
+    if (!form) return;
+    const formName = form.querySelector('[name="form-name"]');
+    const botField = form.querySelector('[name="bot-field"]');
+    if (formName) formName.value = "contact";
+    if (botField) botField.value = "";
+  });
+
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const revealNodes = document.querySelectorAll("[data-reveal]");
 
