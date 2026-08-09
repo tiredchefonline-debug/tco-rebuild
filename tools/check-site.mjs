@@ -1,6 +1,7 @@
 import { access, readFile, readdir } from "node:fs/promises";
 import { basename, dirname, extname, join, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
+import { runInNewContext } from "node:vm";
 
 const root = resolve(fileURLToPath(new URL("../", import.meta.url)));
 const issues = [];
@@ -89,7 +90,14 @@ for (const page of htmlFiles) {
     if (!/\balt\s*=/i.test(image[0])) issues.push(`${relativePage}: image is missing alt text`);
   }
 
-  for (const asset of ["css/site.css", "js/site.js"]) {
+  for (const form of html.matchAll(/<form\b[^>]*>/gi)) {
+    const openingTag = form[0];
+    const toolName = openingTag.match(/\btoolname\s*=\s*["']([^"']+)["']/i)?.[1]?.trim();
+    const toolDescription = openingTag.match(/\btooldescription\s*=\s*["']([^"']+)["']/i)?.[1]?.trim();
+    if (!toolName || !toolDescription) issues.push(`${relativePage}: form is missing complete WebMCP annotations`);
+  }
+
+  for (const asset of ["css/site.css", "js/site.js", "js/webmcp.js"]) {
     const escapedAsset = asset.replace(".", "\\.");
     const versionedAsset = new RegExp(`/assets/${escapedAsset}\\?v=[^\"'\\s>]+`, "i");
     if (!versionedAsset.test(html)) issues.push(`${relativePage}: missing versioned reference for /assets/${asset}`);
@@ -102,10 +110,110 @@ for (const file of googleVerificationFiles) {
   if (actual !== expected) issues.push(`${basename(file)}: invalid Google site verification token`);
 }
 
+const contactHtml = await readFile(join(root, "contact.html"), "utf8");
+const websiteField = contactHtml.match(/<input\b[^>]*\bname\s*=\s*["']website["'][^>]*>/i)?.[0];
+
+if (!websiteField) {
+  issues.push("contact.html: missing website or online profile field");
+} else {
+  if (/\btype\s*=\s*["']url["']/i.test(websiteField)) {
+    issues.push("contact.html: website field must accept entries without an http(s) protocol");
+  }
+  if (!/\baria-describedby\s*=\s*["']website-help["']/i.test(websiteField)) {
+    issues.push("contact.html: website field must explain its flexible input format");
+  }
+}
+
+if (!/\bid\s*=\s*["']website-help["']/i.test(contactHtml) || !/no https:\/\/ needed/i.test(contactHtml)) {
+  issues.push("contact.html: missing website input guidance");
+}
+
 JSON.parse(await readFile(join(root, "manifest.webmanifest"), "utf8"));
+
+const llmsText = await readFile(join(root, "llms.txt"), "utf8");
+const llmsH1s = countMatches(llmsText, /^#\s+\S.*$/gm);
+if (llmsText.length < 50) issues.push("llms.txt: expected at least 50 characters");
+if (llmsH1s !== 1) issues.push(`llms.txt: expected exactly one H1, found ${llmsH1s}`);
+if (!/^>\s+\S.*$/m.test(llmsText)) issues.push("llms.txt: missing blockquote summary");
+if (!/^##\s+\S.*$/m.test(llmsText)) issues.push("llms.txt: missing linked H2 section");
+if (!/\[[^\]]+\]\(https:\/\/tiredchefonline\.com\/[^)]*\)/.test(llmsText)) {
+  issues.push("llms.txt: missing canonical Markdown link");
+}
+
+const webMcpSource = await readFile(join(root, "assets", "js", "webmcp.js"), "utf8");
+const registeredTools = [];
+
+try {
+  runInNewContext(webMcpSource, {
+    document: {
+      modelContext: {
+        registerTool(tool) {
+          registeredTools.push(tool);
+          return Promise.resolve();
+        }
+      }
+    },
+    Promise
+  });
+} catch (error) {
+  issues.push(`assets/js/webmcp.js: registration script failed (${error.message})`);
+}
+
+if (!registeredTools.length) issues.push("assets/js/webmcp.js: expected at least one registered tool");
+
+const toolNames = new Set();
+for (const tool of registeredTools) {
+  if (typeof tool.name !== "string" || !/^[A-Za-z0-9_.-]{1,128}$/.test(tool.name)) {
+    issues.push("assets/js/webmcp.js: tool has an invalid name");
+  } else if (toolNames.has(tool.name)) {
+    issues.push(`assets/js/webmcp.js: duplicate tool name ${tool.name}`);
+  } else {
+    toolNames.add(tool.name);
+  }
+
+  if (typeof tool.description !== "string" || !tool.description.trim()) {
+    issues.push(`assets/js/webmcp.js: ${tool.name || "unnamed tool"} is missing a description`);
+  }
+
+  const schema = tool.inputSchema;
+  if (!schema || schema.type !== "object" || !schema.properties || typeof schema.properties !== "object") {
+    issues.push(`assets/js/webmcp.js: ${tool.name || "unnamed tool"} has an invalid object schema`);
+    continue;
+  }
+
+  for (const requiredName of schema.required || []) {
+    if (!(requiredName in schema.properties)) {
+      issues.push(`assets/js/webmcp.js: ${tool.name} requires unknown property ${requiredName}`);
+    }
+  }
+
+  for (const [propertyName, property] of Object.entries(schema.properties)) {
+    if (!property || typeof property !== "object" || typeof property.type !== "string") {
+      issues.push(`assets/js/webmcp.js: ${tool.name}.${propertyName} has an invalid schema`);
+    }
+    if (property.enum && (!Array.isArray(property.enum) || !property.enum.length)) {
+      issues.push(`assets/js/webmcp.js: ${tool.name}.${propertyName} has an invalid enum`);
+    }
+    if (typeof property.description !== "string" || !property.description.trim()) {
+      issues.push(`assets/js/webmcp.js: ${tool.name}.${propertyName} is missing a description`);
+    }
+  }
+
+  if (typeof tool.execute !== "function") issues.push(`assets/js/webmcp.js: ${tool.name} is missing execute()`);
+}
 
 const netlifyConfig = await readFile(join(root, "netlify.toml"), "utf8");
 const headerBlocks = netlifyConfig.split("[[headers]]");
+const globalHeaderBlock = headerBlocks.find((candidate) => candidate.includes('for = "/*"'));
+const llmsHeaderBlock = headerBlocks.find((candidate) => candidate.includes('for = "/llms.txt"'));
+
+if (!globalHeaderBlock || !/Permissions-Policy\s*=\s*"[^"]*tools=\(self\)/i.test(globalHeaderBlock)) {
+  issues.push("netlify.toml: WebMCP tools must be allowed for the same origin");
+}
+
+if (!llmsHeaderBlock || !/Content-Type\s*=\s*"text\/plain;\s*charset=UTF-8"/i.test(llmsHeaderBlock)) {
+  issues.push("netlify.toml: /llms.txt must be served as UTF-8 plain text");
+}
 
 for (const assetPath of ["/assets/css/*", "/assets/js/*"]) {
   const block = headerBlocks.find((candidate) => candidate.includes(`for = "${assetPath}"`));
@@ -118,5 +226,5 @@ if (issues.length) {
   console.error(issues.join("\n"));
   process.exitCode = 1;
 } else {
-  console.log(`Site check passed: ${htmlFiles.length} HTML pages, ${googleVerificationFiles.length} Google verification file, and all local references are valid.`);
+  console.log(`Site check passed: ${htmlFiles.length} HTML pages, ${googleVerificationFiles.length} Google verification file, and agent discovery metadata are valid.`);
 }

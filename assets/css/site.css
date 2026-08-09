@@ -79,6 +79,15 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+form:tool-form-active {
+  outline: 2px dashed var(--accent);
+  outline-offset: 0.35rem;
+}
+
+button:tool-submit-active {
+  box-shadow: 0 0 0 0.25rem rgba(255, 159, 67, 0.25);
+}
+
 :focus-visible {
   outline: 3px solid var(--mint);
   outline-offset: 4px;
@@ -828,6 +837,12 @@ details > p {
 .form-note {
   color: var(--muted);
   font-size: 0.88rem;
+}
+
+.field-help {
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
 }
 
 .calendly-wrap {
