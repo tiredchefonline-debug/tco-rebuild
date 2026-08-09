@@ -16,7 +16,7 @@ CSS and JavaScript use versioned URLs and are configured in `netlify.toml` with 
 ## Site structure
 
 - `index.html` — homepage
-- `services/` — service hub and individual service pages
+- `services/` — individual Local SEO, Web Design, and Social Media pages
 - `locations.html` — South Metro service areas
 - `contact.html` — Netlify contact form and optional Calendly booking
 - `privacy.html` — privacy policy
