@@ -5,13 +5,40 @@
   const header = document.querySelector(".site-header");
   const toggle = document.querySelector(".nav-toggle");
   const menu = document.querySelector(".nav-menu");
+  const dropdowns = Array.from(document.querySelectorAll("[data-nav-dropdown]"));
+
+  function closeDropdowns(except) {
+    dropdowns.forEach(function (dropdown) {
+      if (dropdown === except) return;
+      dropdown.classList.remove("is-open");
+      const trigger = dropdown.querySelector(".nav-dropdown-trigger");
+      if (trigger) trigger.setAttribute("aria-expanded", "false");
+    });
+  }
 
   function closeMenu() {
     if (!toggle || !menu) return;
     menu.classList.remove("is-open");
     toggle.setAttribute("aria-expanded", "false");
     body.classList.remove("nav-open");
+    closeDropdowns();
   }
+
+  dropdowns.forEach(function (dropdown) {
+    const trigger = dropdown.querySelector(".nav-dropdown-trigger");
+    if (!trigger) return;
+
+    trigger.addEventListener("click", function () {
+      const willOpen = !dropdown.classList.contains("is-open");
+      closeDropdowns(dropdown);
+      dropdown.classList.toggle("is-open", willOpen);
+      trigger.setAttribute("aria-expanded", String(willOpen));
+    });
+  });
+
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest("[data-nav-dropdown]")) closeDropdowns();
+  });
 
   if (toggle && menu) {
     toggle.addEventListener("click", function () {
@@ -24,17 +51,27 @@
       if (event.target.closest("a")) closeMenu();
     });
 
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
-        closeMenu();
-        toggle.focus();
-      }
-    });
-
     window.addEventListener("resize", function () {
       if (window.innerWidth > 900) closeMenu();
     });
   }
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "Escape") return;
+
+    const openDropdown = document.querySelector("[data-nav-dropdown].is-open");
+    if (openDropdown) {
+      const trigger = openDropdown.querySelector(".nav-dropdown-trigger");
+      closeDropdowns();
+      if (trigger) trigger.focus();
+      return;
+    }
+
+    if (toggle && menu && menu.classList.contains("is-open")) {
+      closeMenu();
+      toggle.focus();
+    }
+  });
 
   function setHeaderState() {
     if (header) header.classList.toggle("is-scrolled", window.scrollY > 12);
