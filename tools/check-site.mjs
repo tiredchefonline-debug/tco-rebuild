@@ -119,13 +119,13 @@ if (!websiteField) {
   if (/\btype\s*=\s*["']url["']/i.test(websiteField)) {
     issues.push("contact.html: website field must accept entries without an http(s) protocol");
   }
-  if (!/\baria-describedby\s*=\s*["']website-help["']/i.test(websiteField)) {
-    issues.push("contact.html: website field must explain its flexible input format");
+  if (/\bplaceholder\s*=/i.test(websiteField)) {
+    issues.push("contact.html: website field should remain visually uncluttered");
   }
 }
 
-if (!/\bid\s*=\s*["']website-help["']/i.test(contactHtml) || !/no https:\/\/ needed/i.test(contactHtml)) {
-  issues.push("contact.html: missing website input guidance");
+if (!/<label\s+for\s*=\s*["']website["']>Website or online profile<\/label>/i.test(contactHtml)) {
+  issues.push("contact.html: website field must use the concise visible label");
 }
 
 JSON.parse(await readFile(join(root, "manifest.webmanifest"), "utf8"));
