@@ -1,11 +1,19 @@
-# Minimal static deploy
 [build]
   publish = "."
 
-# Redirect legacy extensions to root
 [[redirects]]
   from = "/index.htm"
   to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/services"
+  to = "/services/"
   status = 301
 
 [[headers]]
@@ -14,3 +22,14 @@
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, must-revalidate"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
