@@ -1,5 +1,5 @@
 import { access, readFile, readdir } from "node:fs/promises";
-import { dirname, extname, join, resolve, sep } from "node:path";
+import { basename, dirname, extname, join, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = resolve(fileURLToPath(new URL("../", import.meta.url)));
@@ -47,7 +47,8 @@ function resolveLocalReference(page, reference) {
 }
 
 const files = await walk(root);
-const htmlFiles = files.filter((file) => extname(file).toLowerCase() === ".html");
+const googleVerificationFiles = files.filter((file) => /^google[a-z0-9]+\.html$/i.test(basename(file)));
+const htmlFiles = files.filter((file) => extname(file).toLowerCase() === ".html" && !googleVerificationFiles.includes(file));
 
 for (const page of htmlFiles) {
   const html = await readFile(page, "utf8");
@@ -95,6 +96,12 @@ for (const page of htmlFiles) {
   }
 }
 
+for (const file of googleVerificationFiles) {
+  const expected = `google-site-verification: ${basename(file)}`;
+  const actual = (await readFile(file, "utf8")).trim();
+  if (actual !== expected) issues.push(`${basename(file)}: invalid Google site verification token`);
+}
+
 JSON.parse(await readFile(join(root, "manifest.webmanifest"), "utf8"));
 
 const netlifyConfig = await readFile(join(root, "netlify.toml"), "utf8");
@@ -111,5 +118,5 @@ if (issues.length) {
   console.error(issues.join("\n"));
   process.exitCode = 1;
 } else {
-  console.log(`Site check passed: ${htmlFiles.length} HTML pages and all local references are valid.`);
+  console.log(`Site check passed: ${htmlFiles.length} HTML pages, ${googleVerificationFiles.length} Google verification file, and all local references are valid.`);
 }
