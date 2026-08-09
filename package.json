@@ -1,0 +1,8 @@
+{
+  "name": "tiredchefonline",
+  "private": true,
+  "scripts": {
+    "check": "node tools/check-site.mjs",
+    "preview": "node tools/serve.mjs"
+  }
+}
