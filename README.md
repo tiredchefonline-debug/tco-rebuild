@@ -12,7 +12,7 @@ The preview server has no package dependencies. Production deployment settings l
 ## Site structure
 
 - `index.html` — homepage
-- `services/` — service hub and individual service pages
+- `services/` — individual Local SEO, Web Design, and Social Media pages
 - `locations.html` — South Metro service areas
 - `contact.html` — Netlify contact form and optional Calendly booking
 - `privacy.html` — privacy policy
